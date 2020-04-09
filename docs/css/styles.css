@@ -1,5 +1,5 @@
 ol {
-  border: 2px solid red;
+  border: 2px dotted lightslategrey;
   min-height: 30px;
   width: 20%;
 }
@@ -14,8 +14,22 @@ li:focus {
   background: #fc0;
 }
 li[aria-grabbed='true'] {
-  background: green;
+  background: lightgreen;
 }
 .highlight {
-  background: lightblue;
+  background: lightgreen;
+}
+#popup {
+  padding: 1em;
+  background: lightslategray;
+  position: absolute;
+  cursor: pointer;
+  left: 10em;
+}
+#popup li {
+  list-style-type: none;
+  background: lightslategray;
+}
+#popup li:focus {
+  background: blue;
 }

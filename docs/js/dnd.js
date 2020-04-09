@@ -1,3 +1,4 @@
+// normal drag and drop
 var internalDNDType = 'text/x-example'; // set this to something specific to your site
 function dragStartHandler(event) {
   if (event.target instanceof HTMLLIElement) {
@@ -43,6 +44,7 @@ function dropHandler(event) {
   event.target.appendChild(li);
 }
 
+// keyboard accesibility
 function getDraggableElements() {
   return document.querySelectorAll(`[draggable="true"]`);
 }
@@ -51,13 +53,16 @@ function selectDraggableElement() {
   const elements = getDraggableElements();
   elements.forEach(function (item) {
     item.addEventListener('keydown', function (e) {
-      console.log(e.keyCode);
       if (e.keyCode === 13) {
+        // enter key
         // selecteer element
         if (item.getAttribute('aria-grabbed') === 'true') {
           item.setAttribute('aria-grabbed', 'false');
         } else {
           item.setAttribute('aria-grabbed', 'true');
+          //   moveElement(item);
+          addPopup(item);
+          selectTarget(item);
         }
         highlightTargets();
       }
@@ -69,4 +74,46 @@ selectDraggableElement();
 function highlightTargets() {
   const el = document.querySelector('.target');
   el.classList.add('highlight');
+}
+function addPopup(element) {
+  const popup =
+    '<ul id="popup" role="menu"><li aria-label="Favorites" tabindex="0" role="menuitem">Favorite</li><li tabindex="0" role="menuitem">another one</li></ul>';
+  element.insertAdjacentHTML('afterend', popup);
+  element.setAttribute('aria-expanded', 'true');
+}
+function removePopup() {
+  const popup = document.getElementById('popup');
+  popup.remove();
+}
+function moveElement(element, id) {
+  console.log(element);
+  console.log(id);
+  const clone = element.cloneNode(true);
+  const target = document.getElementById(id);
+  console.log(target);
+  if (!target) {
+    console.log(
+      'Error: aria-label van de navigatie pop-up komt niet overeen met het ID waar het element heen moet.'
+    );
+  } else {
+    target.insertAdjacentHTML('afterbegin', clone.outerHTML);
+  }
+}
+function removeOldElement(element) {
+  element.remove();
+}
+function selectTarget(elementToBeMoved) {
+  const targets = document.querySelector('#popup').children;
+  const arr = Array.from(targets);
+  arr.forEach(function (item) {
+    item.addEventListener('keydown', function (e) {
+      if (e.keyCode === 13) {
+        // enter key
+        const label = item.getAttribute('aria-label');
+        moveElement(elementToBeMoved, label);
+        removePopup();
+        removeOldElement(elementToBeMoved);
+      }
+    });
+  });
 }

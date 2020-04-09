@@ -10,15 +10,16 @@
     <p>What fruits do you like?</p>
     <ol ondragstart="dragStartHandler(event)" ondragend="dragEndHandler(event)">
       <!-- prettier-ignore -->
-      <li draggable="true" data-value="fruit-apple" tabindex="0" aria-grabbed="false">Apples</li>
+      <li draggable="true" data-value="fruit-apple" tabindex="0" aria-grabbed="false" aria-haspopup="true">Apples</li>
       <!-- prettier-ignore -->
-      <li draggable="true" data-value="fruit-orange" tabindex="0" aria-grabbed="false">Oranges</li>
+      <li draggable="true" data-value="fruit-orange" tabindex="0" aria-grabbed="false" aria-haspopup="true">Oranges</li>
       <!-- prettier-ignore -->
-      <li draggable="true" data-value="fruit-pear" tabindex="0" aria-grabbed="false">Pears</li>
+      <li draggable="true" data-value="fruit-pear" tabindex="0" aria-grabbed="false" aria-haspopup="true">Pears</li>
     </ol>
 
     <p>Drop your favorite fruits below:</p>
     <ol
+      id="Favorites"
       class="target"
       ondragenter="dragEnterHandler(event)"
       ondragover="dragOverHandler(event)"
