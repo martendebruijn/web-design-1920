@@ -64,20 +64,20 @@ function selectDraggableElement() {
           addPopup(item);
           selectTarget(item);
         }
-        highlightTargets();
+        toggleHighlight();
       }
     });
   });
 }
 selectDraggableElement();
 
-function highlightTargets() {
-  const el = document.querySelector('.target');
-  el.classList.add('highlight');
+function toggleHighlight() {
+  const targets = document.querySelectorAll('.target');
+  targets.forEach((item) => item.classList.toggle('highlight'));
 }
 function addPopup(element) {
   const popup =
-    '<ul id="popup" role="menu"><li aria-label="Favorites" tabindex="0" role="menuitem">Favorite</li><li tabindex="0" role="menuitem">another one</li></ul>';
+    '<ul id="popup" role="menu"><li aria-label="Favorites" tabindex="0" role="menuitem">Favorite</li><li tabindex="0" aria-label="Hate" role="menuitem">Hate</li></ul>';
   element.insertAdjacentHTML('afterend', popup);
   element.setAttribute('aria-expanded', 'true');
 }
@@ -89,6 +89,7 @@ function moveElement(element, id) {
   console.log(element);
   console.log(id);
   const clone = element.cloneNode(true);
+  clone.setAttribute('aria-grabbed', 'false');
   const target = document.getElementById(id);
   console.log(target);
   if (!target) {
@@ -113,6 +114,7 @@ function selectTarget(elementToBeMoved) {
         moveElement(elementToBeMoved, label);
         removePopup();
         removeOldElement(elementToBeMoved);
+        toggleHighlight();
       }
     });
   });
