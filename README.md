@@ -8,7 +8,7 @@
 
 ## Usage
 
-```
+```bash
 git clone https://github.com/martendebruijn/web-design-1920.git
 cd web-design-1920
 ```
@@ -26,8 +26,6 @@ cd web-design-1920
 ## Sources
 
 📖 Artikel & Documentation **|** ⚙️ Code **|** 📹 Video **|** 🛠 Tools **|** 📓 Has notes in the wiki of this repo
-
-#
 
 - 📖[Accessible drag and drop](https://dev.opera.com/articles/accessible-drag-and-drop/) **|** [📓Summary](https://github.com/martendebruijn/web-design-1920/wiki/accesible-drag-drop)
 - 📖[HTML - Living Standard](https://html.spec.whatwg.org/#dnd) **|** [📓Summary: How to make a drag and drop component](https://github.com/martendebruijn/web-design-1920/wiki/dnd)
