@@ -109,6 +109,10 @@ li div:first-of-type {
 ol {
   overflow: scroll;
 }
+
+ol:focus-within {
+  background: lightgreen;
+}
 ol:focus {
   background: var(--orange);
 }
