@@ -46,7 +46,6 @@ function selectList() {
       if (e.keyCode === 13) {
         listSelected = true;
         spatieIndex = 0;
-        console.log(spatieIndex); //0
         focusCards(list);
       }
     });
