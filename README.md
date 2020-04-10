@@ -8,7 +8,7 @@
 
 ## Usage
 
-```bash
+```zsh
 git clone https://github.com/martendebruijn/web-design-1920.git
 cd web-design-1920
 ```

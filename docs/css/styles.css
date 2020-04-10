@@ -1,35 +1,9 @@
-ol {
-  border: 2px dotted lightslategrey;
-  min-height: 30px;
-  width: 20%;
-}
-li:nth-child(odd) {
-  background: coral;
-}
-li[draggable='true'] {
-  cursor: move;
-}
-li:hover,
-li:focus {
-  background: #fc0;
-}
-li[aria-grabbed='true'] {
-  background: lightgreen;
-}
-.highlight {
-  background: lightgreen;
-}
-#popup {
-  padding: 1em;
-  background: lightslategray;
-  position: absolute;
-  cursor: pointer;
-  left: 10em;
-}
-#popup li {
-  list-style-type: none;
-  background: lightslategray;
-}
-#popup li:focus {
-  background: blue;
+/* theme */
+:root {
+  --black: #0f0a0a;
+  --red: #f24229;
+  --orange: #ff9600;
+  --beige: #eef3ed;
+  --light-blue: #86ddfc;
+  --dark-blue: #4e90df;
 }
