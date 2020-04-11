@@ -24,7 +24,7 @@ cd web-design-1920
 
 ⚠️⚠️⚠️
 
-- Navigeren van kaarten:
+- Navigeren van kaarten (gebeurt veelal bij de 2de enter):
   - Soms gaat het goed
   - Soms blijft het hangen op de 1e kaart
   - Soms doet het helemaal niks

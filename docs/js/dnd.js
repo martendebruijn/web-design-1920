@@ -27,34 +27,43 @@ function focusList() {
         console.log(listSelected);
         spatieIndex++;
       }
-    }
-  });
-}
-function focusCards() {
-  const lists = getLists();
-  document.addEventListener('keydown', function (e) {
-    if (listSelected) {
-      if (e.keyCode === 32) {
-        const _list = lists[spatieIndex - 1];
-        const cards = getCards(_list);
-        if (spatieIndexCards === cards.length) {
-          spatieIndexCards = 0;
-          cards[spatieIndexCards].focus();
-          console.log('spatie + 1e kaart');
-          console.log(cards); // hij pakt hier ook andere lijsten
-        } else {
-          console.log(cards);
-          console.log(spatieIndexCards);
-          cards[spatieIndexCards].focus();
-          console.log('spatie + 2e kaart');
+    } else if (listSelected) {
+      const _lists = getLists();
+      const _list = _lists[spatieIndex - 1];
+      const _cards = getCards(_list);
+      document.addEventListener('keydown', function (e) {
+        if (listSelected) {
+          if (e.keyCode === 32) {
+            console.log(
+              spatieIndexCards === _cards.length || spatieIndexCards === 0
+            );
+            console.log('spatieIndexCards: ' + spatieIndexCards);
+            console.log('=== cards.length: ' + _cards.length);
+            console.log('|| === 0');
+
+            // --- --- ---
+            //  gedrag: hij veranderd pas van kaart na 2 keer op spatie drukken.
+            if (spatieIndexCards >= _cards.length || spatieIndexCards === 0) {
+              spatieIndexCards = 0;
+              console.log(spatieIndexCards);
+
+              _cards[spatieIndexCards].focus();
+            } else {
+              console.log(_cards);
+              console.log(spatieIndexCards);
+              _cards[spatieIndexCards].focus();
+              console.log('spatie + 2e kaart');
+            }
+            spatieIndexCards++;
+            // --- --- ---
+          } else if (e.keyCode === 37) {
+            const remainedList = _lists[spatieIndex - 1];
+            remainedList.focus();
+            _listSelected = false;
+            console.log('pijl naar rechts + lijst');
+          }
         }
-        spatieIndexCards++;
-      } else if (e.keyCode === 37) {
-        const remainedList = lists[spatieIndex - 1];
-        remainedList.focus();
-        listSelected = false;
-        console.log('pijl naar rechts + lijst');
-      }
+      });
     }
   });
 }
@@ -68,8 +77,9 @@ function selectList() {
         listSelected = true;
         const cards = getCards(e.target);
         console.log('1e kaart + enter');
-        cards[0].focus();
-        focusCards();
+        // cards[0].focus();
+        // focusCards();
+        // console.log('ik ben nu zovaak afgevuurt:' + z++);
       }
     });
   });
