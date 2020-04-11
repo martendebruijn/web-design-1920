@@ -31,39 +31,32 @@ function focusList() {
       const _lists = getLists();
       const _list = _lists[spatieIndex - 1];
       const _cards = getCards(_list);
-      document.addEventListener('keydown', function (e) {
-        if (listSelected) {
-          if (e.keyCode === 32) {
-            console.log(
-              spatieIndexCards === _cards.length || spatieIndexCards === 0
-            );
-            console.log('spatieIndexCards: ' + spatieIndexCards);
-            console.log('=== cards.length: ' + _cards.length);
-            console.log('|| === 0');
-
-            // --- --- ---
-            //  gedrag: hij veranderd pas van kaart na 2 keer op spatie drukken.
-            if (spatieIndexCards >= _cards.length || spatieIndexCards === 0) {
-              spatieIndexCards = 0;
-              console.log(spatieIndexCards);
-
-              _cards[spatieIndexCards].focus();
-            } else {
-              console.log(_cards);
-              console.log(spatieIndexCards);
-              _cards[spatieIndexCards].focus();
-              console.log('spatie + 2e kaart');
-            }
-            spatieIndexCards++;
-            // --- --- ---
-          } else if (e.keyCode === 37) {
-            const remainedList = _lists[spatieIndex - 1];
-            remainedList.focus();
-            _listSelected = false;
-            console.log('pijl naar rechts + lijst');
-          }
+      if (e.keyCode === 32) {
+        // hij voert deze code dus voor iedere keer dat je op spatie drukt uit
+        console.log(
+          spatieIndexCards === _cards.length || spatieIndexCards === 0
+        );
+        console.log('index: ' + spatieIndexCards);
+        if (spatieIndexCards >= _cards.length || spatieIndexCards === 0) {
+          spatieIndexCards = 0;
+          console.log('index: ' + spatieIndexCards);
+          console.log('spatie + 1e kaart');
+          _cards[spatieIndexCards].focus();
+        } else {
+          console.log(_cards);
+          console.log('index: ' + spatieIndexCards);
+          _cards[spatieIndexCards].focus();
+          console.log('spatie + 2e kaart');
         }
-      });
+        spatieIndexCards++;
+        console.log('index: ' + spatieIndexCards);
+        // --- --- ---
+      } else if (e.keyCode === 37) {
+        const remainedList = _lists[spatieIndex - 1];
+        remainedList.focus();
+        listSelected = false;
+        console.log('pijl naar rechts + lijst');
+      }
     }
   });
 }
