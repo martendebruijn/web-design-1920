@@ -15,9 +15,21 @@ cd web-design-1920
 
 ## Table of Contents
 
+- [Known Issues](#Known-issues)
 - [Whishlist](#Whishlist)
 - [Credits](#Credits)
 - [Sources](#Sources)
+
+## Known Issues
+
+⚠️⚠️⚠️
+
+- Navigeren van kaarten:
+  - Soms gaat het goed
+  - Soms blijft het hangen op de 1e kaart
+  - Soms doet het helemaal niks
+
+⚠️⚠️⚠️
 
 ## Whishlist
 

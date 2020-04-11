@@ -50,7 +50,6 @@ function focusCards() {
         }
         spatieIndexCards++;
       } else if (e.keyCode === 37) {
-        // spatieIndex = spatieIndex - 1;
         const remainedList = lists[spatieIndex - 1];
         remainedList.focus();
         listSelected = false;
