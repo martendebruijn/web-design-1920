@@ -13,6 +13,12 @@ git clone https://github.com/martendebruijn/web-design-1920.git
 cd web-design-1920
 ```
 
+## To do
+
+- [ ] add styling to dnd
+- [ ] add keyboard accesibility to dnd
+- [ ] add different card contents
+
 ## Table of Contents
 
 <!-- - [Known Issues](#Known-issues) -->

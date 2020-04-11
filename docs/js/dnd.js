@@ -1,5 +1,3 @@
-// import { events } from './modules/listItems.js';
-
 let spatieIndex = 0;
 let spatieIndexCards = 1; // begint bij 1 omdat men kaart 0 al selecteerd met enter
 let listSelected = false;
@@ -89,10 +87,6 @@ selectList();
 var internalDNDType = 'text/plain';
 function dragStartHandler(e) {
   if (e.target instanceof HTMLLIElement) {
-    // use the element's data-value="" attribute as the value to be moving:
-    console.log(e);
-    console.log(e.target.innerHTML);
-
     e.dataTransfer.setData(internalDNDType, e.target.innerHTML);
     e.dataTransfer.effectAllowed = 'move'; // only allow moves
   } else {
@@ -128,7 +122,6 @@ function dropHandler(e) {
   var data = e.dataTransfer.getData(internalDNDType);
   console.log(data);
   li.innerHTML = data;
-  // change to append() instead of appendChild()
   console.log(e.target.tagName);
   const target = e.target;
   const parent = target.parentNode;
