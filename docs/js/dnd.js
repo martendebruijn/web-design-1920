@@ -30,22 +30,26 @@ function focusList() {
     }
   });
 }
-function focusCards(cards) {
+function focusCards() {
+  const lists = getLists();
   document.addEventListener('keydown', function (e) {
     if (listSelected) {
       if (e.keyCode === 32) {
+        const _list = lists[spatieIndex - 1];
+        const cards = getCards(_list);
         if (spatieIndexCards === cards.length) {
           spatieIndexCards = 0;
           cards[spatieIndexCards].focus();
           console.log('spatie + 1e kaart');
           console.log(cards); // hij pakt hier ook andere lijsten
         } else {
+          console.log(cards);
+          console.log(spatieIndexCards);
           cards[spatieIndexCards].focus();
           console.log('spatie + 2e kaart');
         }
         spatieIndexCards++;
       } else if (e.keyCode === 37) {
-        const lists = getLists();
         spatieIndex = spatieIndex - 1;
         const remainedList = lists[spatieIndex];
         remainedList.focus();
@@ -63,10 +67,10 @@ function selectList() {
     list.addEventListener('keydown', function (e) {
       if (e.keyCode === 13) {
         listSelected = true;
-        const cards = getCards(list);
+        const cards = getCards(e.target);
         console.log('1e kaart + enter');
         cards[0].focus();
-        focusCards(cards);
+        focusCards();
       }
     });
   });
