@@ -1,4 +1,5 @@
 let spatieIndex = 0;
+let spatieIndexCards = 0;
 let listSelected = false;
 
 function getLists() {
@@ -20,41 +21,34 @@ function focusList() {
         } else {
           lists[spatieIndex].focus();
           console.log('spatie + lijst');
+          console.log(spatieIndex);
         }
+        console.log('ik geef spatie index plus 1 en hoor false te zijn');
+        console.log(listSelected);
         spatieIndex++;
       }
     }
   });
 }
-function focusCards(cards, list) {
-  console.log(list); // geeft de juiste lijst
+function focusCards(cards) {
   document.addEventListener('keydown', function (e) {
     if (listSelected) {
       if (e.keyCode === 32) {
-        console.log('LET OP DEZE: SPATIE'); //spatie
-        console.log(list); // werd 2 keer afgevuurd ?? 1 x onjuist , 1x juist | werd later 3 x afgevuurd ?
-        // De eerste gaat iedere keer goed maar al men uit de lijst gaat, komen ze dubbel?
-        if (spatieIndex === cards.length) {
-          spatieIndex = 0;
-          cards[spatieIndex].focus();
+        if (spatieIndexCards === cards.length) {
+          spatieIndexCards = 0;
+          cards[spatieIndexCards].focus();
           console.log('spatie + 1e kaart');
+          console.log(cards); // hij pakt hier ook andere lijsten
         } else {
-          cards[spatieIndex].focus();
+          cards[spatieIndexCards].focus();
           console.log('spatie + 2e kaart');
         }
-        spatieIndex++;
+        spatieIndexCards++;
       } else if (e.keyCode === 37) {
-        console.log('LET OP DEZE: PIJL RECHTS'); // pijltje links
-        console.log(list); // geeft verkeerde lijst
-        // de-select lijst
-        list.focus();
-        // reset spatieindex naar de index van lijst
-
-        const i = list.getAttribute('data-list-index');
-        // console.log('onder en boven zouden hetzelfde moeten zijn');
-        console.log(list); // geeft niet de juiste lijst
-        console.log(i);
-
+        const lists = getLists();
+        spatieIndex = spatieIndex - 1;
+        const remainedList = lists[spatieIndex];
+        remainedList.focus();
         listSelected = false;
         console.log('pijl naar rechts + lijst');
       }
@@ -69,13 +63,10 @@ function selectList() {
     list.addEventListener('keydown', function (e) {
       if (e.keyCode === 13) {
         listSelected = true;
-        spatieIndex = 1;
         const cards = getCards(list);
         console.log('1e kaart + enter');
         cards[0].focus();
-        console.log('LET OP DEZE ENTER');
-        console.log(list); // geeft de juiste lijst
-        focusCards(cards, list);
+        focusCards(cards);
       }
     });
   });
