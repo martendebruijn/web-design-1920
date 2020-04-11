@@ -9,16 +9,25 @@
     />
     <link href="./css/reset.css" rel="stylesheet" />
     <link href="./css/styles.css" rel="stylesheet" />
-    <title>MARIJNS EFFENAAR AGENDA</title>
+    <title>MARIJNS EFFENAAR PLANNER</title>
   </head>
   <body>
     <header>
       <h1>🎧 Marijn's de Effenaar planner</h1>
     </header>
     <main>
-      <ol class="agenda" tabindex="-1" data-list-index="0">
+      <ol
+        class="agenda"
+        tabindex="-1"
+        ondragstart="dragStartHandler(event)"
+        ondragend="dragEndHandler(event)"
+        ondragenter="dragEnterHandler(event)"
+        ondragover="dragOverHandler(event)"
+        ondrop="dropHandler(event)"
+        aria-dropeffect="move"
+      >
         <h2>🗓 Agenda</h2>
-        <li tabindex="-1">
+        <li draggable="true" data-value="event-1" tabindex="-1">
           <div>
             <h4>vr 11 dec</h4>
             <?xml version="1.0" encoding="iso-8859-1"?>
@@ -49,7 +58,7 @@
           <p>MGLA + MISÞYRMING + WOLVENNEST + ALFAHANNE</p>
           <button>Tickets</button>
         </li>
-        <li tabindex="-1">
+        <li draggable="true" data-value="event-2" tabindex="-1">
           <div>
             <h4>vr 11 dec</h4>
             <?xml version="1.0" encoding="iso-8859-1"?>
@@ -81,11 +90,21 @@
           <button>Tickets</button>
         </li>
       </ol>
-      <ol class="want" tabindex="-1" data-list-index="1">
+      <ol
+        id="want"
+        class="want"
+        tabindex="-1"
+        ondragstart="dragStartHandler(event)"
+        ondragend="dragEndHandler(event)"
+        ondragenter="dragEnterHandler(event)"
+        ondragover="dragOverHandler(event)"
+        ondrop="dropHandler(event)"
+        aria-dropeffect="move"
+      >
         <h2>🎤 Wil ik heen</h2>
-        <li tabindex="-1">
+        <li draggable="true" tabindex="-1">
           <div>
-            <h4>wilikheen</h4>
+            <h4>vr 11 dec</h4>
             <?xml version="1.0" encoding="iso-8859-1"?>
             <!-- prettier-ignore -->
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -114,7 +133,7 @@
           <p>MGLA + MISÞYRMING + WOLVENNEST + ALFAHANNE</p>
           <button>Tickets</button>
         </li>
-        <li tabindex="-1">
+        <li draggable="true" tabindex="-1">
           <div>
             <h4>vr 11 dec</h4>
             <?xml version="1.0" encoding="iso-8859-1"?>
@@ -146,9 +165,19 @@
           <button>Tickets</button>
         </li>
       </ol>
-      <ol class="kids" tabindex="-1" data-list-index="2">
+      <ol
+        id="kids"
+        class="kids"
+        tabindex="-1"
+        ondragstart="dragStartHandler(event)"
+        ondragend="dragEndHandler(event)"
+        ondragenter="dragEnterHandler(event)"
+        ondragover="dragOverHandler(event)"
+        ondrop="dropHandler(event)"
+        aria-dropeffect="move"
+      >
         <h2>👨‍👩‍👦‍👦 Leuk voor de kinderen</h2>
-        <li tabindex="-1">
+        <li draggable="true" tabindex="-1">
           <div>
             <h4>vr 11 dec</h4>
             <?xml version="1.0" encoding="iso-8859-1"?>
@@ -179,7 +208,7 @@
           <p>MGLA + MISÞYRMING + WOLVENNEST + ALFAHANNE</p>
           <button>Tickets</button>
         </li>
-        <li tabindex="-1">
+        <li draggable="true" tabindex="-1">
           <div>
             <h4>vr 11 dec</h4>
             <?xml version="1.0" encoding="iso-8859-1"?>
@@ -211,11 +240,21 @@
           <button>Tickets</button>
         </li>
       </ol>
-      <ol class="maybe" tabindex="-1" data-list-index="3">
+      <ol
+        id="maybe"
+        class="maybe"
+        tabindex="-1"
+        ondragstart="dragStartHandler(event)"
+        ondragend="dragEndHandler(event)"
+        ondragenter="dragEnterHandler(event)"
+        ondragover="dragOverHandler(event)"
+        ondrop="dropHandler(event)"
+        aria-dropeffect="move"
+      >
         <h2>📌 Misschien</h2>
-        <li tabindex="-1">
+        <li draggable="true" tabindex="-1">
           <div>
-            <h4>misschien</h4>
+            <h4>vr 11 dec</h4>
             <?xml version="1.0" encoding="iso-8859-1"?>
             <!-- prettier-ignore -->
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -244,7 +283,7 @@
           <p>MGLA + MISÞYRMING + WOLVENNEST + ALFAHANNE</p>
           <button>Tickets</button>
         </li>
-        <li tabindex="-1">
+        <li draggable="true" tabindex="-1">
           <div>
             <h4>vr 11 dec</h4>
             <?xml version="1.0" encoding="iso-8859-1"?>
@@ -276,11 +315,21 @@
           <button>Tickets</button>
         </li>
       </ol>
-      <ol class="nope" tabindex="-1" data-list-index="4">
+      <ol
+        id="nope"
+        class="nope"
+        tabindex="-1"
+        ondragstart="dragStartHandler(event)"
+        ondragend="dragEndHandler(event)"
+        ondragenter="dragEnterHandler(event)"
+        ondragover="dragOverHandler(event)"
+        ondrop="dropHandler(event)"
+        aria-dropeffect="move"
+      >
         <h2>🗑 Hoef ik niet heen</h2>
-        <li tabindex="-1">
+        <li draggable="true" tabindex="-1">
           <div>
-            <h4>nope</h4>
+            <h4>vr 11 dec</h4>
             <?xml version="1.0" encoding="iso-8859-1"?>
             <!-- prettier-ignore -->
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -309,7 +358,7 @@
           <p>MGLA + MISÞYRMING + WOLVENNEST + ALFAHANNE</p>
           <button>Tickets</button>
         </li>
-        <li tabindex="-2">
+        <li draggable="true" tabindex="-2">
           <div>
             <h4>vr 11 dec</h4>
             <?xml version="1.0" encoding="iso-8859-1"?>
@@ -342,6 +391,7 @@
         </li>
       </ol>
     </main>
+    <script type="module" src="./js/modules/listItems.js"></script>
     <script src="./js/dnd.js"></script>
   </body>
 </html>

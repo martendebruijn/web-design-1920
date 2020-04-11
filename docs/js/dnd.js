@@ -1,13 +1,18 @@
+// import { events } from './modules/listItems.js';
+
 let spatieIndex = 0;
 let spatieIndexCards = 1; // begint bij 1 omdat men kaart 0 al selecteerd met enter
 let listSelected = false;
 
+// helpers
 function getLists() {
   return document.querySelectorAll('ol');
 }
 function getCards(list) {
   return list.querySelectorAll('li');
 }
+
+// list / card navigation
 function focusList() {
   document.addEventListener('keydown', function (e) {
     if (!listSelected) {
@@ -71,11 +76,67 @@ function selectList() {
         const cards = getCards(e.target);
         console.log('1e kaart + enter');
         cards[0].focus();
-        // focusCards();
-        // console.log('ik ben nu zovaak afgevuurt:' + z++);
       }
     });
   });
 }
 focusList();
 selectList();
+
+// normal drag and drop
+// Todo: add source (HTML standaard website)
+// draggable item
+var internalDNDType = 'text/plain';
+function dragStartHandler(e) {
+  if (e.target instanceof HTMLLIElement) {
+    // use the element's data-value="" attribute as the value to be moving:
+    console.log(e);
+    console.log(e.target.innerHTML);
+
+    e.dataTransfer.setData(internalDNDType, e.target.innerHTML);
+    e.dataTransfer.effectAllowed = 'move'; // only allow moves
+  } else {
+    e.preventDefault(); // don't allow selection to be dragged
+  }
+}
+function dragEndHandler(e) {
+  if (e.dataTransfer.dropEffect == 'move') {
+    // remove the dragged element
+    e.target.parentNode.removeChild(e.target);
+  }
+}
+// target
+// make it so that the user can only drop it in the list and not also in the cards
+function dragEnterHandler(e) {
+  var items = e.dataTransfer.items;
+  console.log(items);
+  for (var i = 0; i < items.length; ++i) {
+    // make this a cached for loop
+    var item = items[i];
+    if (item.kind == 'string' && item.type == internalDNDType) {
+      e.preventDefault();
+      return;
+    }
+  }
+}
+function dragOverHandler(e) {
+  e.dataTransfer.dropEffect = 'move';
+  e.preventDefault();
+}
+function dropHandler(e) {
+  var li = document.createElement('li');
+  var data = e.dataTransfer.getData(internalDNDType);
+  console.log(data);
+  li.innerHTML = data;
+  // change to append() instead of appendChild()
+  console.log(e.target.tagName);
+  const target = e.target;
+  const parent = target.parentNode;
+  if (target.tagName === 'OL') {
+    target.insertBefore(li, target.childNodes[2]);
+  } else if (parent.tagName === 'OL') {
+    parent.insertBefore(li, parent.childNodes[2]);
+  } else {
+    parent.parentNode.insertBefore(li, parent.parentNode.childNodes[2]);
+  }
+}
