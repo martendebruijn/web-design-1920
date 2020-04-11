@@ -1,5 +1,5 @@
 let spatieIndex = 0;
-let spatieIndexCards = 0;
+let spatieIndexCards = 1; // begint bij 1 omdat men kaart 0 al selecteerd met enter
 let listSelected = false;
 
 function getLists() {
@@ -70,7 +70,7 @@ function selectList() {
         listSelected = true;
         const cards = getCards(e.target);
         console.log('1e kaart + enter');
-        // cards[0].focus();
+        cards[0].focus();
         // focusCards();
         // console.log('ik ben nu zovaak afgevuurt:' + z++);
       }

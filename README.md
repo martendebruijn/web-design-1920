@@ -15,12 +15,13 @@ cd web-design-1920
 
 ## Table of Contents
 
-- [Known Issues](#Known-issues)
+<!-- - [Known Issues](#Known-issues) -->
+
 - [Whishlist](#Whishlist)
 - [Credits](#Credits)
 - [Sources](#Sources)
 
-## Known Issues
+<!-- ## Known Issues
 
 ⚠️⚠️⚠️
 
@@ -29,7 +30,7 @@ cd web-design-1920
   - Soms blijft het hangen op de 1e kaart
   - Soms doet het helemaal niks
 
-⚠️⚠️⚠️
+⚠️⚠️⚠️ -->
 
 ## Whishlist
 
