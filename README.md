@@ -35,6 +35,11 @@ cd web-design-1920
 - [ ] Only highlight the selected target
 - [ ] Add test results 1 to wiki
 - [ ] Add test results 2 to wiki
+- [ ] Add red border to cards on hover so that they don't dissolve in the orange background of the list (mouse)
+
+### If I have time
+
+- [ ] Clean up code
 
 ## Known Issues
 
@@ -44,6 +49,7 @@ cd web-design-1920
 - Focused element is soms buiten beeld.
 - De 'hoef ik niet heen' lijst is niet leesbaar op kleinere schermen (13").
 - Als dnd menu open is, navigeert men niet alleen door het menu heen maar ook de lijst.
+- Soms werkt de focus op de eerste kaart niet als men op enter drukt bij het selecteren van een lijst.
 
 ⚠️⚠️⚠️
 
