@@ -15,8 +15,8 @@ cd web-design-1920
 
 ## Table of Contents
 
-- [Known Issues](#Known-issues)
 - [To do](#To-do)
+- [Known Issues](#Known-issues)
 - [Random Things I Learned](#random-things-i-learned)
 - [Whishlist](#Whishlist)
 - [Credits](#Credits)
@@ -44,7 +44,6 @@ cd web-design-1920
 - Focused element is soms buiten beeld.
 - De 'hoef ik niet heen' lijst is niet leesbaar op kleinere schermen (13").
 - Als dnd menu open is, navigeert men niet alleen door het menu heen maar ook de lijst.
--
 
 ⚠️⚠️⚠️
 
