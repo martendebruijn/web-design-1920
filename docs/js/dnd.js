@@ -1,6 +1,7 @@
 let spatieIndex = 0;
 let spatieIndexCards = 1; // begint bij 1 omdat men kaart 0 al selecteerd met enter
 let listSelected = false;
+let cardSelected = false;
 
 // helpers
 function getLists() {
@@ -18,7 +19,7 @@ function focusList() {
         // spatie
         e.preventDefault();
         const lists = getLists();
-        if (spatieIndex === lists.length) {
+        if (spatieIndex >= lists.length) {
           spatieIndex = 0;
           lists[spatieIndex].focus();
           console.log('spatie + 1e lijst');
@@ -141,14 +142,23 @@ function dropHandler(e) {
 function getDraggableElements() {
   return document.querySelectorAll(`[draggable="true"]`);
 }
-
-function toggleHighlightTargets() {
+let z = 1;
+function highlightTargets() {
+  console.log(`ik wordt zovaak uitgevoerd: ${z++}`);
   const lists = getLists();
   const currentList = lists[spatieIndex - 1];
   lists.forEach(function (list) {
     if (list !== currentList) {
-      list.classList.toggle('jsHighlightTargets');
+      list.classList.add('jsHighlightTargets');
     }
+  });
+}
+
+function removeHighlight() {
+  const highlightedElements = document.querySelectorAll('.jsHighlightTargets');
+  console.log(highlightedElements);
+  highlightedElements.forEach(function (element) {
+    element.classList.remove('jsHighlightTargets');
   });
 }
 
@@ -194,6 +204,11 @@ function moveElement(element, id) {
     );
   } else {
     target.insertAdjacentHTML('beforeend', clone.outerHTML);
+    const cards = target.children;
+    const listIndex = target.getAttribute('data-list-index');
+    spatieIndex = listIndex;
+
+    cards[1].focus();
   }
 }
 function removeOldElement(element) {
@@ -205,37 +220,48 @@ function selectTarget(elementToBeMoved) {
   const arr = Array.from(targets);
   arr.forEach(function (item) {
     item.addEventListener('keydown', function (e) {
-      if (e.keyCode === 13) {
+      if (e.keyCode === 13 && cardSelected) {
         // enter
         const label = item.getAttribute('aria-label');
         moveElement(elementToBeMoved, label);
         removeOldElement(elementToBeMoved);
+        removeHighlight();
         removePopup();
+        cardSelected = false;
       }
     });
   });
 }
 
+let y = 0;
 function selectDraggableElement() {
   const elements = getDraggableElements();
+  console.log(`ik wordt ${y++} uitgevoerd`);
+  //  y.removeEventListener("mouseover", RespondMouseOver);
   elements.forEach(function (element) {
-    element.addEventListener('keydown', function (e) {
-      if (e.keyCode === 13 && listSelected) {
-        // enter
-        element.setAttribute('aria-grabbed', 'true');
-        toggleHighlightTargets();
-        showPopup(element);
-        selectTarget(element);
-      }
-    });
+    element.addEventListener(
+      'keydown',
+      function (e) {
+        if (e.keyCode === 13 && listSelected && !cardSelected) {
+          // enter
+          cardSelected = true;
+          element.setAttribute('aria-grabbed', 'true');
+          highlightTargets();
+          showPopup(element);
+          selectTarget(element);
+        }
+      },
+      { once: true }
+    );
   });
 }
 selectDraggableElement();
 
 // to do:
 // add class .js-highlight to possible targets DONE
-// make the drop keyboard accesible
+// make the drop keyboard accesible DONE
 // add possibility to cancel the drop
-// make sure everything works with the new elements
+// make sure everything works with the new elements DONE
 // add a info tab
 // maak placeholder en fix navigatie wanneer een lijst leeg is
+// add highlight to the ONLY the selected target when the user navigated in the dnd menu

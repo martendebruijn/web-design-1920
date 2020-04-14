@@ -36,7 +36,6 @@ li:focus {
 li[draggable='true'] {
   cursor: move;
 }
-
 body {
   font-family: 'Roboto', sans-serif;
   background: white;
@@ -73,6 +72,9 @@ ol li h3 {
 header {
   height: 3em;
   margin-bottom: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 main {
   display: grid;
@@ -174,16 +176,16 @@ ol.jsHighlightTargets h2 {
 /* popup navigation menu */
 #popup {
   padding: 1em;
-  background: lightslategray;
+  background: var(--dark-gray);
   position: absolute;
   cursor: pointer;
 }
 #popup li {
   list-style-type: none;
-  background: lightslategray;
+  background: var(--dark-gray);
 }
 #popup li:focus {
-  background: blue;
+  background: var(--orange);
   border: none;
   border-radius: 0;
 }

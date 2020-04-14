@@ -13,30 +13,44 @@ git clone https://github.com/martendebruijn/web-design-1920.git
 cd web-design-1920
 ```
 
-## To do
-
-- [ ] add styling to dnd
-- [ ] add keyboard accesibility to dnd
-- [ ] add different card contents
-
 ## Table of Contents
 
-<!-- - [Known Issues](#Known-issues) -->
-
+- [Known Issues](#Known-issues)
+- [To do](#To-do)
+- [Random Things I Learned](#random-things-i-learned)
 - [Whishlist](#Whishlist)
 - [Credits](#Credits)
 - [Sources](#Sources)
 
-<!-- ## Known Issues
+## To do
+
+- [x] add styling to dnd
+- [x] add keyboard accesibility to dnd
+- [ ] add information tab
+- [ ] change card content
+- [ ] Add cancel option to dnd menu (fysieke knop en rechter pijl toets)
+- [ ] Fix moved card cannot be moved issue
+- [ ] Add possibility to move multiple cards at once
+- [ ] Prevent DND to the agenda list
+- [ ] Only highlight the selected target
+- [ ] Add test results 1 to wiki
+- [ ] Add test results 2 to wiki
+
+## Known Issues
 
 ⚠️⚠️⚠️
 
-- Navigeren van kaarten (gebeurt veelal bij de 2de enter):
-  - Soms gaat het goed
-  - Soms blijft het hangen op de 1e kaart
-  - Soms doet het helemaal niks
+- Soms werkt het navigatie menu voor het verplaatsen van de kaarten niet (bij kaarten die men al een keer heeft verplaatst)
+- Focused element is soms buiten beeld.
+- De 'hoef ik niet heen' lijst is niet leesbaar op kleinere schermen (13").
+- Als dnd menu open is, navigeert men niet alleen door het menu heen maar ook de lijst.
+-
 
-⚠️⚠️⚠️ -->
+⚠️⚠️⚠️
+
+## Random Things I Learned
+
+- Bij de `addEventListener` kan men een options (object) variable toevoegen. Hierin kan men de optie `once` toevoegen, die ervoor zorgt dat een event automatisch wordt verwijderd wanneer hij één keer is uitgevoerd. Wat erg handig is als je een event dynamisch toevoegt en niet wilt dat er twee keer dezelfde eventlistener wordt toegevoegd. Moet je er wel voor zorgen dat je het event pas weer toevoegd als deze ook daadwerkelijk uitgevoerd is.
 
 ## Whishlist
 
