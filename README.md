@@ -55,7 +55,7 @@ cd web-design-1920
 
 ## Random Things I Learned
 
-- Bij de `addEventListener` kan men een options (object) variable toevoegen. Hierin kan men de optie `once` toevoegen, die ervoor zorgt dat een event automatisch wordt verwijderd wanneer hij één keer is uitgevoerd. Wat erg handig is als je een event dynamisch toevoegt en niet wilt dat er twee keer dezelfde eventlistener wordt toegevoegd. Moet je er wel voor zorgen dat je het event pas weer toevoegd als deze ook daadwerkelijk uitgevoerd is.
+- Bij de `addEventListener` kan men een options (object) variable toevoegen. Hierin kan men de optie `once` toevoegen, die ervoor zorgt dat een event automatisch wordt verwijderd wanneer hij één keer is uitgevoerd.
 
 ## Whishlist
 

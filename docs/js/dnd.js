@@ -14,7 +14,7 @@ function getCards(list) {
 // list / card navigation
 function focusList() {
   document.addEventListener('keydown', function (e) {
-    if (!listSelected) {
+    if (!listSelected && !cardSelected) {
       if (e.keyCode === 32) {
         // spatie
         e.preventDefault();
@@ -32,7 +32,7 @@ function focusList() {
         console.log(listSelected);
         spatieIndex++;
       }
-    } else if (listSelected) {
+    } else if (listSelected && !cardSelected) {
       const _lists = getLists();
       const _list = _lists[spatieIndex - 1];
       const _cards = getCards(_list);
@@ -63,6 +63,9 @@ function focusList() {
         listSelected = false;
         console.log('pijl naar rechts + lijst');
       }
+    } else if (!listSelected && cardSelected) {
+      // navigeer in het DND menu
+      console.log('navigeer');
     }
   });
 }
@@ -72,9 +75,10 @@ function selectList() {
   const lists = getLists();
   lists.forEach(function (list) {
     list.addEventListener('keydown', function (e) {
-      if (e.keyCode === 13 && !listSelected) {
+      if (e.keyCode === 13 && !listSelected && !cardSelected) {
         // enter
-        listSelected = true;
+        listSelected = true; // deze zorgt ervoor dat hij in het navigatie DND menu weer true is
+        console.log('HOI IK GOOI ROET IN HET ETEN');
         const cards = getCards(e.target);
         console.log('1e kaart + enter');
         cards[0].focus();
@@ -188,7 +192,7 @@ function showPopup(element) {
   });
   const finalPopup = popup.join(' ');
   element.insertAdjacentHTML('afterbegin', finalPopup);
-  element.setAttribute('aria-expanded', 'true');
+  // element.setAttribute('aria-expanded', 'true');
 }
 function removePopup() {
   const popup = document.querySelector('#popup');
@@ -215,44 +219,50 @@ function removeOldElement(element) {
   element.remove();
 }
 function selectTarget(elementToBeMoved) {
+  console.log('card: ' + cardSelected);
+  console.log('list: ' + listSelected);
   const targets = document.getElementById('popup').children;
   console.log(targets);
   const arr = Array.from(targets);
   arr.forEach(function (item) {
     item.addEventListener('keydown', function (e) {
-      if (e.keyCode === 13 && cardSelected) {
+      console.log(e.key);
+      console.log(e.keyCode);
+      console.log(e.keyCode === 13);
+      console.log(cardSelected);
+      console.log(!listSelected); // hier is list selected true maar waarom?
+      console.log(listSelected);
+      if (e.keyCode === 13 && cardSelected && !listSelected) {
+        console.log('jeejs');
         // enter
         const label = item.getAttribute('aria-label');
         moveElement(elementToBeMoved, label);
         removeOldElement(elementToBeMoved);
         removeHighlight();
         removePopup();
-        cardSelected = false;
+        // cardSelected = false;
       }
     });
   });
 }
 
-let y = 0;
+let y = 1;
 function selectDraggableElement() {
   const elements = getDraggableElements();
   console.log(`ik wordt ${y++} uitgevoerd`);
   //  y.removeEventListener("mouseover", RespondMouseOver);
   elements.forEach(function (element) {
-    element.addEventListener(
-      'keydown',
-      function (e) {
-        if (e.keyCode === 13 && listSelected && !cardSelected) {
-          // enter
-          cardSelected = true;
-          element.setAttribute('aria-grabbed', 'true');
-          highlightTargets();
-          showPopup(element);
-          selectTarget(element);
-        }
-      },
-      { once: true }
-    );
+    element.addEventListener('keydown', function sel(e) {
+      if (e.keyCode === 13 && listSelected && !cardSelected) {
+        // enter
+        cardSelected = true;
+        listSelected = false;
+        element.setAttribute('aria-grabbed', 'true');
+        highlightTargets();
+        showPopup(element);
+        selectTarget(element);
+      }
+    });
   });
 }
 selectDraggableElement();
