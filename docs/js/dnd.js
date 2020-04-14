@@ -66,6 +66,10 @@ function focusList() {
     } else if (!listSelected && cardSelected) {
       // navigeer in het DND menu
       console.log('navigeer');
+    } else {
+      console.log(
+        `Error: er is iets fout gegaan met het navigeren in de 'document.addEventListener'. List selected = ${listSelected}, Card selected = ${cardSelected}.`
+      );
     }
   });
 }
