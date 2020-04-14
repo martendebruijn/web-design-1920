@@ -6,20 +6,22 @@
   --card: #eef3ed;
   --gray: #d3d3d3;
   --dark-gray: rgb(127, 127, 127);
-  --light-blue: #86ddfc;
   --dark-blue: #4e90df;
+  --green: lightgreen;
 }
 /* visual feedback */
+/* lijst is active */
 ol:focus-within,
 ol.agenda:focus-within h2,
 ol.want:focus-within h2,
 ol.maybe:focus-within h2,
 ol.kids:focus-within h2,
 ol.nope:focus-within h2 {
-  background: lightgreen;
+  background: var(--dark-blue);
 }
+/* selecteerde element */
+li:hover,
 ol:focus,
-li:focus,
 ol.agenda:focus h2,
 ol.want:focus h2,
 ol.maybe:focus h2,
@@ -27,6 +29,14 @@ ol.kids:focus h2,
 ol.nope:focus h2 {
   background: var(--orange);
 }
+li:focus {
+  border: 8px solid var(--red);
+  border-radius: 16px;
+}
+li[draggable='true'] {
+  cursor: move;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   background: white;
@@ -155,4 +165,33 @@ button {
 /* move svg */
 svg {
   height: 25px;
+}
+/* houd jsHighlihgt onder de default background classes */
+.jsHighlightTargets,
+ol.jsHighlightTargets h2 {
+  background: var(--green);
+}
+/* popup navigation menu */
+#popup {
+  padding: 1em;
+  background: lightslategray;
+  position: absolute;
+  cursor: pointer;
+}
+#popup li {
+  list-style-type: none;
+  background: lightslategray;
+}
+#popup li:focus {
+  background: blue;
+  border: none;
+  border-radius: 0;
+}
+#popup li:first-of-type {
+  margin-top: 0px;
+}
+#popup li {
+  margin: 0 0;
+  border-radius: 0;
+  padding: 0;
 }

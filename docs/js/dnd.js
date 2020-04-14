@@ -15,6 +15,7 @@ function focusList() {
   document.addEventListener('keydown', function (e) {
     if (!listSelected) {
       if (e.keyCode === 32) {
+        // spatie
         e.preventDefault();
         const lists = getLists();
         if (spatieIndex === lists.length) {
@@ -35,6 +36,7 @@ function focusList() {
       const _list = _lists[spatieIndex - 1];
       const _cards = getCards(_list);
       if (e.keyCode === 32) {
+        // spatie
         // hij voert deze code dus voor iedere keer dat je op spatie drukt uit
         console.log(
           spatieIndexCards === _cards.length || spatieIndexCards === 0
@@ -53,8 +55,8 @@ function focusList() {
         }
         spatieIndexCards++;
         console.log('index: ' + spatieIndexCards);
-        // --- --- ---
       } else if (e.keyCode === 37) {
+        // pijl naar rechts <-
         const remainedList = _lists[spatieIndex - 1];
         remainedList.focus();
         listSelected = false;
@@ -69,7 +71,8 @@ function selectList() {
   const lists = getLists();
   lists.forEach(function (list) {
     list.addEventListener('keydown', function (e) {
-      if (e.keyCode === 13) {
+      if (e.keyCode === 13 && !listSelected) {
+        // enter
         listSelected = true;
         const cards = getCards(e.target);
         console.log('1e kaart + enter');
@@ -78,6 +81,7 @@ function selectList() {
     });
   });
 }
+
 focusList();
 selectList();
 
@@ -133,3 +137,105 @@ function dropHandler(e) {
     parent.parentNode.insertBefore(li, parent.parentNode.childNodes[2]);
   }
 }
+
+function getDraggableElements() {
+  return document.querySelectorAll(`[draggable="true"]`);
+}
+
+function toggleHighlightTargets() {
+  const lists = getLists();
+  const currentList = lists[spatieIndex - 1];
+  lists.forEach(function (list) {
+    if (list !== currentList) {
+      list.classList.toggle('jsHighlightTargets');
+    }
+  });
+}
+
+function showPopup(element) {
+  const menuItems = {
+    base: '<ul id="popup" role="menu">',
+    agenda: '<li aria-label="agenda" tabindex="-1" role="menuitem">Agenda</li>',
+    want:
+      '<li aria-label="want" tabindex="-1" role="menuitem">Wil ik heen</li>',
+    kids:
+      '<li aria-label="kids" tabindex="-1" role="menuitem">Leuk voor de kinderen</li>',
+    maybe:
+      '<li aria-label="maybe" tabindex="-1" role="menuitem">Misschien</li>',
+    nope:
+      '<li aria-label="nope" tabindex="-1" role="menuitem">Hoef ik niet heen</li>',
+    end: '</ul>',
+  };
+  const keys = Object.keys(menuItems);
+  let popup = [];
+  const lists = getLists();
+  const currentList = lists[spatieIndex - 1];
+  const listID = currentList.id;
+  keys.forEach(function (key) {
+    if (key !== listID) {
+      popup.push(menuItems[key]);
+    }
+  });
+  const finalPopup = popup.join(' ');
+  element.insertAdjacentHTML('afterbegin', finalPopup);
+  element.setAttribute('aria-expanded', 'true');
+}
+function removePopup() {
+  const popup = document.querySelector('#popup');
+  popup.remove();
+}
+function moveElement(element, id) {
+  const clone = element.cloneNode(true);
+  clone.setAttribute('aria-grabbed', false);
+  const target = document.getElementById(id);
+  if (!target) {
+    console.log(
+      'Error: aria-label van de navigatie pop-up komt niet overeen met het ID waar het element heen moet.'
+    );
+  } else {
+    target.insertAdjacentHTML('beforeend', clone.outerHTML);
+  }
+}
+function removeOldElement(element) {
+  element.remove();
+}
+function selectTarget(elementToBeMoved) {
+  const targets = document.getElementById('popup').children;
+  console.log(targets);
+  const arr = Array.from(targets);
+  arr.forEach(function (item) {
+    item.addEventListener('keydown', function (e) {
+      if (e.keyCode === 13) {
+        // enter
+        const label = item.getAttribute('aria-label');
+        moveElement(elementToBeMoved, label);
+        removeOldElement(elementToBeMoved);
+        removePopup();
+      }
+    });
+  });
+}
+
+function selectDraggableElement() {
+  const elements = getDraggableElements();
+  elements.forEach(function (element) {
+    element.addEventListener('keydown', function (e) {
+      if (e.keyCode === 13 && listSelected) {
+        // enter
+        element.setAttribute('aria-grabbed', 'true');
+        toggleHighlightTargets();
+        showPopup(element);
+        selectTarget(element);
+      }
+    });
+  });
+}
+selectDraggableElement();
+
+// to do:
+// add class .js-highlight to possible targets DONE
+// make the drop keyboard accesible
+// add possibility to cancel the drop
+// make sure everything works with the new elements
+// add a info tab
+// maak placeholder en fix navigatie wanneer een lijst leeg is
