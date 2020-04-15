@@ -91,6 +91,7 @@ function navigation() {
         removeHighlight();
         cardSelected = false;
         listSelected = true;
+        dndMenuIndex = 0;
       }
     } else {
       console.log(
@@ -236,7 +237,7 @@ function showPopup(element) {
     }
   });
   const finalPopup = popup.join(' ');
-  element.insertAdjacentHTML('afterbegin', finalPopup);
+  element.insertAdjacentHTML('beforebegin', finalPopup);
   // element.setAttribute('aria-expanded', 'true');
 }
 function removePopup() {
@@ -256,7 +257,7 @@ function moveElement(element, id) {
     const cards = target.children;
     const listIndex = target.getAttribute('data-list-index');
     spatieIndex = listIndex;
-
+    dndMenuIndex = 0;
     cards[1].focus();
   }
 }

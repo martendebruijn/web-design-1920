@@ -79,8 +79,7 @@ Error-02: aria-label van de navigatie pop-up komt niet overeen met het ID waar h
 
 ## To do
 
-- [ ] add information tab
-- [ ] change card content
+- [ ] make DND navigation menu as drop down from beneath the title of the list
 - [ ] Add cancel option to dnd menu (fysieke knop en rechter pijl toets)
 - [ ] Fix moved card cannot be moved issue
 - [ ] Add possibility to move multiple cards at once
@@ -94,6 +93,8 @@ Error-02: aria-label van de navigatie pop-up komt niet overeen met het ID waar h
 - [x] add keyboard accesibility to dnd
 - [x] Only highlight the selected target
 - [x] Add placeholder for empty lists
+- [x] add information tab
+- [x] change card content
 
 ### If I have time
 

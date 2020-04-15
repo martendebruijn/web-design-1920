@@ -20,7 +20,6 @@ ol.nope:focus-within h2 {
   background: var(--dark-blue);
 }
 /* selecteerde element */
-li:hover,
 ol:focus,
 ol.agenda:focus h2,
 ol.want:focus h2,
@@ -29,7 +28,8 @@ ol.kids:focus h2,
 ol.nope:focus h2 {
   background: var(--orange);
 }
-li:focus {
+li:focus,
+li:hover {
   border: 8px solid var(--red);
   border-radius: 16px;
 }
@@ -91,6 +91,7 @@ ol li {
   padding: 15px;
 }
 ol {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
   overflow: scroll;
 }
 /* list titles */
@@ -143,6 +144,7 @@ ol.nope h2 {
 ol li {
   background: var(--card);
   margin: 1em 0;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
 }
 ol li:first-of-type {
   margin-top: 55px;
@@ -175,17 +177,21 @@ ol.jsHighlightTargets h2 {
 }
 /* popup navigation menu */
 #popup {
-  background: var(--dark-gray);
+  background: var(--gray);
   position: absolute;
   cursor: pointer;
   border-radius: 8px;
+  top: 8em;
+  left: 3.5em;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
 }
 #popup li {
   margin: 0 0;
-  /* border-radius: 0; */
+  box-shadow: none;
   padding: 1em;
   list-style-type: none;
-  background: var(--dark-gray);
+  background: var(--gray);
 }
 #popup li:focus {
   background: var(--orange);
@@ -204,13 +210,14 @@ ol.jsHighlightTargets h2 {
 }
 #help {
   position: absolute;
-  background: rgba(78, 144, 223, 0.8);
+  background: var(--dark-blue);
   z-index: 1;
   top: 25%;
   left: 25%;
   width: 50%;
   border-radius: 8px;
   padding: 1em;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
 }
 #help p {
   margin-bottom: 0.5em;
