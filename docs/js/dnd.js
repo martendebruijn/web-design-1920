@@ -1,5 +1,6 @@
 let spatieIndex = 0;
 let spatieIndexCards = 1; // begint bij 1 omdat men kaart 0 al selecteerd met enter
+let dndMenuIndex = 0;
 let listSelected = false;
 let cardSelected = false;
 
@@ -12,7 +13,7 @@ function getCards(list) {
 }
 
 // list / card navigation
-function focusList() {
+function navigation() {
   document.addEventListener('keydown', function (e) {
     if (!listSelected && !cardSelected) {
       if (e.keyCode === 32) {
@@ -65,10 +66,29 @@ function focusList() {
       }
     } else if (!listSelected && cardSelected) {
       // navigeer in het DND menu
-      console.log('navigeer');
+      const targets = document.getElementById('popup').children;
+      if (e.keyCode === 32) {
+        // spatie
+        if (dndMenuIndex >= 4) {
+          dndMenuIndex = 0;
+          targets[dndMenuIndex].focus();
+          highlightSelectedTarget(targets[dndMenuIndex]);
+          dndMenuIndex++;
+        } else {
+          targets[dndMenuIndex].focus();
+          highlightSelectedTarget(targets[dndMenuIndex]);
+          dndMenuIndex++;
+        }
+      } else if (e.keyCode === 37) {
+        // pijl naar rechts <-
+        removePopup();
+        removeHighlight();
+        cardSelected = false;
+        listSelected = true;
+      }
     } else {
       console.log(
-        `Error: er is iets fout gegaan met het navigeren in de 'document.addEventListener'. List selected = ${listSelected}, Card selected = ${cardSelected}.`
+        `Error-01: er is iets fout gegaan met het navigeren in de functie: navigation(). List selected = ${listSelected}, Card selected = ${cardSelected}.`
       );
     }
   });
@@ -81,17 +101,18 @@ function selectList() {
     list.addEventListener('keydown', function (e) {
       if (e.keyCode === 13 && !listSelected && !cardSelected) {
         // enter
-        listSelected = true; // deze zorgt ervoor dat hij in het navigatie DND menu weer true is
-        console.log('HOI IK GOOI ROET IN HET ETEN');
+        listSelected = true;
         const cards = getCards(e.target);
         console.log('1e kaart + enter');
-        cards[0].focus();
+        if (cards.length !== 0) {
+          cards[0].focus();
+        }
       }
     });
   });
 }
 
-focusList();
+navigation();
 selectList();
 
 // normal drag and drop
@@ -161,6 +182,18 @@ function highlightTargets() {
     }
   });
 }
+function highlightSelectedTarget(target) {
+  const lists = getLists();
+  const label = target.getAttribute('aria-label');
+  lists.forEach(function (list) {
+    const highlighted = list.classList.contains('jsHighlightTargets');
+    if (label === list.id && !highlighted) {
+      list.classList.add('jsHighlightTargets');
+    } else if (label !== list.id && highlighted) {
+      list.classList.remove('jsHighlightTargets');
+    }
+  });
+}
 
 function removeHighlight() {
   const highlightedElements = document.querySelectorAll('.jsHighlightTargets');
@@ -171,17 +204,19 @@ function removeHighlight() {
 }
 
 function showPopup(element) {
+  // to do: cancel btn
   const menuItems = {
     base: '<ul id="popup" role="menu">',
-    agenda: '<li aria-label="agenda" tabindex="-1" role="menuitem">Agenda</li>',
+    agenda:
+      '<li aria-label="agenda" tabindex="-1" role="menuitem">🗓 Agenda</li>',
     want:
-      '<li aria-label="want" tabindex="-1" role="menuitem">Wil ik heen</li>',
+      '<li aria-label="want" tabindex="-1" role="menuitem">🎤 Wil ik heen</li>',
     kids:
-      '<li aria-label="kids" tabindex="-1" role="menuitem">Leuk voor de kinderen</li>',
+      '<li aria-label="kids" tabindex="-1" role="menuitem">👨‍👩‍👦‍👦 Leuk voor de kinderen</li>',
     maybe:
-      '<li aria-label="maybe" tabindex="-1" role="menuitem">Misschien</li>',
+      '<li aria-label="maybe" tabindex="-1" role="menuitem">📌 Misschien</li>',
     nope:
-      '<li aria-label="nope" tabindex="-1" role="menuitem">Hoef ik niet heen</li>',
+      '<li aria-label="nope" tabindex="-1" role="menuitem">🗑 Hoef ik niet heen</li>',
     end: '</ul>',
   };
   const keys = Object.keys(menuItems);
@@ -208,7 +243,7 @@ function moveElement(element, id) {
   const target = document.getElementById(id);
   if (!target) {
     console.log(
-      'Error: aria-label van de navigatie pop-up komt niet overeen met het ID waar het element heen moet.'
+      'Error-02: aria-label van de navigatie pop-up komt niet overeen met het ID waar het element heen moet. In de functie: moveElement().'
     );
   } else {
     target.insertAdjacentHTML('beforeend', clone.outerHTML);
@@ -244,7 +279,7 @@ function selectTarget(elementToBeMoved) {
         removeOldElement(elementToBeMoved);
         removeHighlight();
         removePopup();
-        // cardSelected = false;
+        cardSelected = false;
       }
     });
   });
