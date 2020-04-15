@@ -3,6 +3,7 @@ let spatieIndexCards = 1; // begint bij 1 omdat men kaart 0 al selecteerd met en
 let dndMenuIndex = 0;
 let listSelected = false;
 let cardSelected = false;
+let lastList = 0;
 
 // helpers
 function getLists() {
@@ -11,7 +12,10 @@ function getLists() {
 function getCards(list) {
   return list.querySelectorAll('li');
 }
-
+function test_getLists() {
+  return document.querySelectorAll('.js-t');
+}
+console.log(test_getLists());
 // main navigation
 function navigation() {
   document.addEventListener('keydown', function (e) {
@@ -23,7 +27,7 @@ function navigation() {
       if (e.keyCode === 32) {
         // spatie
         e.preventDefault();
-        const lists = getLists();
+        const lists = test_getLists();
         if (spatieIndex >= lists.length) {
           spatieIndex = 0;
           lists[spatieIndex].focus();
@@ -38,7 +42,7 @@ function navigation() {
         spatieIndex++;
       }
     } else if (listSelected && !cardSelected) {
-      const _lists = getLists();
+      const _lists = test_getLists();
       const _list = _lists[spatieIndex - 1];
       const _cards = getCards(_list);
       if (e.keyCode === 32) {
@@ -87,7 +91,7 @@ function navigation() {
         }
       } else if (e.keyCode === 37) {
         // pijl naar rechts <-
-        removePopup();
+        removePopup(spatieIndex);
         removeHighlight();
         cardSelected = false;
         listSelected = true;
@@ -103,7 +107,7 @@ function navigation() {
 
 // event listener op de lijst
 function selectList() {
-  const lists = getLists();
+  const lists = test_getLists();
   lists.forEach(function (list) {
     list.addEventListener('keydown', function (e) {
       if (e.keyCode === 13 && !listSelected && !cardSelected) {
@@ -181,7 +185,7 @@ function getDraggableElements() {
 let z = 1;
 function highlightTargets() {
   console.log(`ik wordt zovaak uitgevoerd: ${z++}`);
-  const lists = getLists();
+  const lists = test_getLists();
   const currentList = lists[spatieIndex - 1];
   lists.forEach(function (list) {
     if (list !== currentList) {
@@ -190,13 +194,14 @@ function highlightTargets() {
   });
 }
 function highlightSelectedTarget(target) {
-  const lists = getLists();
+  const lists = test_getLists();
   const label = target.getAttribute('aria-label');
+  const _label = 't-' + label;
   lists.forEach(function (list) {
     const highlighted = list.classList.contains('jsHighlightTargets');
-    if (label === list.id && !highlighted) {
+    if (_label === list.id && !highlighted) {
       list.classList.add('jsHighlightTargets');
-    } else if (label !== list.id && highlighted) {
+    } else if (_label !== list.id && highlighted) {
       list.classList.remove('jsHighlightTargets');
     }
   });
@@ -211,6 +216,7 @@ function removeHighlight() {
 }
 
 function showPopup(element) {
+  element.classList.add('t-sel');
   // to do: cancel btn
   const menuItems = {
     base: '<ul id="popup" role="menu">',
@@ -237,16 +243,33 @@ function showPopup(element) {
     }
   });
   const finalPopup = popup.join(' ');
-  element.insertAdjacentHTML('beforebegin', finalPopup);
+
+  const parent = currentList.parentNode.parentNode;
+  console.log(parent);
+  const menuWrapper = parent.querySelector('.menu-wrapper');
+  console.log(menuWrapper);
+  menuWrapper.insertAdjacentHTML('afterbegin', finalPopup);
+  menuWrapper.classList.add('opened');
+  // appendedMenu.insertAdjacentHTML('afterbegin', finalPopup);
   // element.setAttribute('aria-expanded', 'true');
 }
-function removePopup() {
-  const popup = document.querySelector('#popup');
-  popup.remove();
+function removePopup(last) {
+  console.log(last);
+  const lists = test_getLists();
+  lists.forEach(function (item) {
+    const i = item.getAttribute('data-index');
+    if (i == last) {
+      const wrap = item.querySelector('.menu-wrapper');
+      wrap.classList.remove('opened');
+      const popup = document.querySelector('#popup');
+      popup.remove();
+    }
+  });
 }
 function moveElement(element, id) {
   const clone = element.cloneNode(true);
   clone.setAttribute('aria-grabbed', false);
+  clone.classList.remove('t-sel');
   const target = document.getElementById(id);
   if (!target) {
     console.log(
@@ -255,6 +278,7 @@ function moveElement(element, id) {
   } else {
     target.insertAdjacentHTML('beforeend', clone.outerHTML);
     const cards = target.children;
+    lastList = spatieIndex;
     const listIndex = target.getAttribute('data-list-index');
     spatieIndex = listIndex;
     dndMenuIndex = 0;
@@ -293,7 +317,7 @@ function selectTarget(elementToBeMoved) {
         moveElement(elementToBeMoved, label);
         removeOldElement(elementToBeMoved);
         removeHighlight();
-        removePopup();
+        removePopup(lastList);
         removeEmptyPlaceholder(label);
         cardSelected = false;
       }
@@ -322,11 +346,6 @@ function selectDraggableElement() {
 }
 selectDraggableElement();
 
-// to do:
-// add class .js-highlight to possible targets DONE
-// make the drop keyboard accesible DONE
-// add possibility to cancel the drop
-// make sure everything works with the new elements DONE
-// add a info tab
-// maak placeholder en fix navigatie wanneer een lijst leeg is
-// add highlight to the ONLY the selected target when the user navigated in the dnd menu
+document.querySelector('#test').addEventListener('click', function (e) {
+  document.querySelector('#menu-wrapper').classList.toggle('opened');
+});
