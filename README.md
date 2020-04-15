@@ -31,7 +31,18 @@ De tests zal ik waarschijnlijk in mijn wiki uitwerken.
 
 ### Test 1 - 00/00/0000
 
-### Test 2 - 00/00/0000
+### Test 2 - 15/04/2020
+
+#### Plan
+
+Allereerst wil ik mijn concept uitleggen aan Marijn vóórdát hij mijn prototype ziet. Daarna wil ik hem vragen om eerst te proberen om met mijn prototype te werken, zonder uitleg én ook zonder het informatie veld te openen. Wanneer hij er echt niet uitkomt wil ik hem vragen om het informatie veld te openen. Deze test wil ik mij vooral focussen op de, door mij, gekozen navigatie-toetsen.
+
+#### Vragen
+
+- Zijn de huidige navigatie toetsen goed te bereiken voor u?
+- Zou u iets anders zien aan de navigatie toetsen?
+- Is de visuele feedback van welk element geselecteerd is en waar een element heen kan gaan, duidelijk?
+- Heeft u nog andere feedback?
 
 ### Test 3 - 00/00/0000
 
