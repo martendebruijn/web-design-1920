@@ -39,6 +39,7 @@ function navigation() {
       const _cards = getCards(_list);
       if (e.keyCode === 32) {
         // spatie
+        e.preventDefault();
         // hij voert deze code dus voor iedere keer dat je op spatie drukt uit
         console.log(
           spatieIndexCards === _cards.length || spatieIndexCards === 0
@@ -68,6 +69,7 @@ function navigation() {
       // navigeer in het DND menu
       const targets = document.getElementById('popup').children;
       if (e.keyCode === 32) {
+        e.preventDefault();
         // spatie
         if (dndMenuIndex >= 4) {
           dndMenuIndex = 0;
@@ -257,6 +259,14 @@ function moveElement(element, id) {
 function removeOldElement(element) {
   element.remove();
 }
+function removeEmptyPlaceholder(label) {
+  const list = document.getElementById(label);
+  const containsCards = getCards(list);
+  if (containsCards.length === 1) {
+    const placeholder = list.querySelector('.empty');
+    placeholder.remove();
+  }
+}
 function selectTarget(elementToBeMoved) {
   console.log('card: ' + cardSelected);
   console.log('list: ' + listSelected);
@@ -279,6 +289,7 @@ function selectTarget(elementToBeMoved) {
         removeOldElement(elementToBeMoved);
         removeHighlight();
         removePopup();
+        removeEmptyPlaceholder(label);
         cardSelected = false;
       }
     });

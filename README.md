@@ -82,6 +82,7 @@ Error-02: aria-label van de navigatie pop-up komt niet overeen met het ID waar h
 - [x] add styling to dnd
 - [x] add keyboard accesibility to dnd
 - [x] Only highlight the selected target
+- [x] Add placeholder for empty lists
 
 ### If I have time
 
@@ -92,11 +93,10 @@ Error-02: aria-label van de navigatie pop-up komt niet overeen met het ID waar h
 
 ⚠️⚠️⚠️
 
-- Soms werkt het navigatie menu voor het verplaatsen van de kaarten niet (bij kaarten die men al een keer heeft verplaatst)
-- Focused element is soms buiten beeld.
-- Soms werkt de focus op de eerste kaart niet als men op enter drukt bij het selecteren van een lijst.
+- Verplaatste kaarten kunnen niet nog een keer verplaatst worden.
 - ~~De 'hoef ik niet heen' lijst is niet leesbaar op kleinere schermen (13").~~
 - ~~Als dnd menu open is, navigeert men niet alleen door het menu heen maar ook de lijst.~~
+- ~~Focused element is soms buiten beeld.~~
 
 ⚠️⚠️⚠️
 
