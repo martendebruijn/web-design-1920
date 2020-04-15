@@ -224,3 +224,6 @@ b {
 .hidden {
   visibility: hidden;
 }
+.lower-case {
+  text-transform: lowercase;
+}
