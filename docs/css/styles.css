@@ -198,3 +198,29 @@ ol.jsHighlightTargets h2 {
 .empty {
   margin-top: 55px;
 }
+.hulp {
+  text-transform: none;
+  font-weight: 500;
+}
+#help {
+  position: absolute;
+  background: rgba(78, 144, 223, 0.8);
+  z-index: 1;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  border-radius: 8px;
+  padding: 1em;
+}
+#help p {
+  margin-bottom: 0.5em;
+}
+#help p:first-of-type {
+  margin-top: 0.5em;
+}
+b {
+  font-weight: 500;
+}
+.hidden {
+  visibility: hidden;
+}

@@ -12,9 +12,13 @@ function getCards(list) {
   return list.querySelectorAll('li');
 }
 
-// list / card navigation
+// main navigation
 function navigation() {
   document.addEventListener('keydown', function (e) {
+    if (e.keyCode === 73) {
+      const info = document.getElementById('help');
+      info.classList.toggle('hidden');
+    }
     if (!listSelected && !cardSelected) {
       if (e.keyCode === 32) {
         // spatie
