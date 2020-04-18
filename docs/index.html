@@ -14,28 +14,20 @@
   <body>
     <header>
       <h1>🎧 Marijn's de Effenaar planner</h1>
-      <p class="hulp">Druk op i voor de controls</p>
     </header>
     <main>
-      <div id="help" class="hidden">
-        <h2>Keyboard controls</h2>
-        <!-- <span>&#10005;</span> -->
-        <p><b>Spatie:</b> navigeer over lijsten en kaarten heen.</p>
-        <p><b>Enter:</b> selecteer een element.</p>
-        <p>
-          <b>Rechter pijltjestoets:</b> de-selecteer een geselecteerd element.
-        </p>
-        <p>Druk op de <b class="lower-case">i</b> om dit veld te sluiten.</p>
-      </div>
-      <div id="t-agenda" class="t-agenda js-t" tabindex="-1" data-index="1">
+      <div
+        id="agenda-wrapper"
+        class="list-wrappers"
+        tabindex="-1"
+        data-index="1"
+      >
         <div class="header-list">
           <h2>🗓 Agenda</h2>
-          <div class="menu-wrapper"></div>
         </div>
-        <div class="t-ol">
+        <div class="list-area">
           <ol
-            id="agenda"
-            class="agenda js-target"
+            id="agenda-list"
             tabindex="-1"
             ondragstart="dragStartHandler(event)"
             ondragend="dragEndHandler(event)"
@@ -43,31 +35,11 @@
             ondragover="dragOverHandler(event)"
             ondrop="dropHandler(event)"
             aria-dropeffect="move"
-            data-list-index="1"
           >
             <li draggable="true" tabindex="-1" aria-grabbed="false">
               <div>
                 <h4>vr 11 dec</h4>
-                <?xml version="1.0" encoding="iso-8859-1"?>
-                <!-- prettier-ignore -->
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<g>
-	<g>
-		<path d="M508.875,248.458l-74.667-74.667c-3.042-3.052-7.646-3.948-11.625-2.313c-3.979,1.646-6.583,5.542-6.583,9.854v32
-			c0,2.833,1.125,5.542,3.125,7.542l13.792,13.792H277.333V79.083l13.792,13.792c2,2,4.708,3.125,7.542,3.125h32
-			c4.313,0,8.208-2.594,9.854-6.583c1.646-3.99,0.729-8.573-2.313-11.625L263.542,3.125c-4.167-4.167-10.917-4.167-15.083,0
-			l-74.667,74.667c-3.042,3.052-3.958,7.635-2.313,11.625c1.646,3.99,5.542,6.583,9.854,6.583h32c2.833,0,5.542-1.125,7.542-3.125
-			l13.792-13.792v155.583H79.083l13.792-13.792c2-2,3.125-4.708,3.125-7.542v-32c0-4.313-2.604-8.208-6.583-9.854
-			c-3.958-1.656-8.583-0.75-11.625,2.313L3.125,248.458c-4.167,4.167-4.167,10.917,0,15.083l74.667,74.667
-			c2.042,2.042,4.771,3.125,7.542,3.125c1.375,0,2.771-0.26,4.083-0.813c3.979-1.646,6.583-5.542,6.583-9.854v-32
-			c0-2.833-1.125-5.542-3.125-7.542l-13.792-13.792h155.583v155.583l-13.792-13.792c-2-2-4.708-3.125-7.542-3.125h-32
-			c-4.313,0-8.208,2.594-9.854,6.583c-1.646,3.99-0.729,8.573,2.313,11.625l74.667,74.667c2.083,2.083,4.813,3.125,7.542,3.125
-			c2.729,0,5.458-1.042,7.542-3.125l74.667-74.667c3.042-3.052,3.958-7.635,2.313-11.625c-1.646-3.99-5.542-6.583-9.854-6.583h-32
-			c-2.833,0-5.542,1.125-7.542,3.125l-13.792,13.792V277.333h155.583l-13.792,13.792c-2,2-3.125,4.708-3.125,7.542v32
-			c0,4.313,2.604,8.208,6.583,9.854c1.313,0.552,2.708,0.813,4.083,0.813c2.771,0,5.5-1.083,7.542-3.125l74.667-74.667
-			C513.042,259.375,513.042,252.625,508.875,248.458z"/>
-	          </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                <img src="./img/move.svg" alt="Drag and drop icon" />
               </div>
               <h3>
                 EINDHOVEN METAL MEETING: MY DYING BRIDE + ROTTING CHRIST +
@@ -79,26 +51,7 @@
             <li draggable="true" tabindex="-1" aria-grabbed="false">
               <div>
                 <h4>DO 17 DEC</h4>
-                <?xml version="1.0" encoding="iso-8859-1"?>
-                <!-- prettier-ignore -->
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<g>
-	<g>
-		<path d="M508.875,248.458l-74.667-74.667c-3.042-3.052-7.646-3.948-11.625-2.313c-3.979,1.646-6.583,5.542-6.583,9.854v32
-			c0,2.833,1.125,5.542,3.125,7.542l13.792,13.792H277.333V79.083l13.792,13.792c2,2,4.708,3.125,7.542,3.125h32
-			c4.313,0,8.208-2.594,9.854-6.583c1.646-3.99,0.729-8.573-2.313-11.625L263.542,3.125c-4.167-4.167-10.917-4.167-15.083,0
-			l-74.667,74.667c-3.042,3.052-3.958,7.635-2.313,11.625c1.646,3.99,5.542,6.583,9.854,6.583h32c2.833,0,5.542-1.125,7.542-3.125
-			l13.792-13.792v155.583H79.083l13.792-13.792c2-2,3.125-4.708,3.125-7.542v-32c0-4.313-2.604-8.208-6.583-9.854
-			c-3.958-1.656-8.583-0.75-11.625,2.313L3.125,248.458c-4.167,4.167-4.167,10.917,0,15.083l74.667,74.667
-			c2.042,2.042,4.771,3.125,7.542,3.125c1.375,0,2.771-0.26,4.083-0.813c3.979-1.646,6.583-5.542,6.583-9.854v-32
-			c0-2.833-1.125-5.542-3.125-7.542l-13.792-13.792h155.583v155.583l-13.792-13.792c-2-2-4.708-3.125-7.542-3.125h-32
-			c-4.313,0-8.208,2.594-9.854,6.583c-1.646,3.99-0.729,8.573,2.313,11.625l74.667,74.667c2.083,2.083,4.813,3.125,7.542,3.125
-			c2.729,0,5.458-1.042,7.542-3.125l74.667-74.667c3.042-3.052,3.958-7.635,2.313-11.625c-1.646-3.99-5.542-6.583-9.854-6.583h-32
-			c-2.833,0-5.542,1.125-7.542,3.125l-13.792,13.792V277.333h155.583l-13.792,13.792c-2,2-3.125,4.708-3.125,7.542v32
-			c0,4.313,2.604,8.208,6.583,9.854c1.313,0.552,2.708,0.813,4.083,0.813c2.771,0,5.5-1.083,7.542-3.125l74.667-74.667
-			C513.042,259.375,513.042,252.625,508.875,248.458z"/>
-	          </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                <img src="./img/move.svg" alt="Drag and drop icon" />
               </div>
               <h3>
                 ABBA GOLD - THE CHRISTMAS SPECIAL SHOW
@@ -109,26 +62,7 @@
             <li draggable="true" tabindex="-1" aria-grabbed="false">
               <div>
                 <h4>VR 18 DEC</h4>
-                <?xml version="1.0" encoding="iso-8859-1"?>
-                <!-- prettier-ignore -->
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<g>
-	<g>
-		<path d="M508.875,248.458l-74.667-74.667c-3.042-3.052-7.646-3.948-11.625-2.313c-3.979,1.646-6.583,5.542-6.583,9.854v32
-			c0,2.833,1.125,5.542,3.125,7.542l13.792,13.792H277.333V79.083l13.792,13.792c2,2,4.708,3.125,7.542,3.125h32
-			c4.313,0,8.208-2.594,9.854-6.583c1.646-3.99,0.729-8.573-2.313-11.625L263.542,3.125c-4.167-4.167-10.917-4.167-15.083,0
-			l-74.667,74.667c-3.042,3.052-3.958,7.635-2.313,11.625c1.646,3.99,5.542,6.583,9.854,6.583h32c2.833,0,5.542-1.125,7.542-3.125
-			l13.792-13.792v155.583H79.083l13.792-13.792c2-2,3.125-4.708,3.125-7.542v-32c0-4.313-2.604-8.208-6.583-9.854
-			c-3.958-1.656-8.583-0.75-11.625,2.313L3.125,248.458c-4.167,4.167-4.167,10.917,0,15.083l74.667,74.667
-			c2.042,2.042,4.771,3.125,7.542,3.125c1.375,0,2.771-0.26,4.083-0.813c3.979-1.646,6.583-5.542,6.583-9.854v-32
-			c0-2.833-1.125-5.542-3.125-7.542l-13.792-13.792h155.583v155.583l-13.792-13.792c-2-2-4.708-3.125-7.542-3.125h-32
-			c-4.313,0-8.208,2.594-9.854,6.583c-1.646,3.99-0.729,8.573,2.313,11.625l74.667,74.667c2.083,2.083,4.813,3.125,7.542,3.125
-			c2.729,0,5.458-1.042,7.542-3.125l74.667-74.667c3.042-3.052,3.958-7.635,2.313-11.625c-1.646-3.99-5.542-6.583-9.854-6.583h-32
-			c-2.833,0-5.542,1.125-7.542,3.125l-13.792,13.792V277.333h155.583l-13.792,13.792c-2,2-3.125,4.708-3.125,7.542v32
-			c0,4.313,2.604,8.208,6.583,9.854c1.313,0.552,2.708,0.813,4.083,0.813c2.771,0,5.5-1.083,7.542-3.125l74.667-74.667
-			C513.042,259.375,513.042,252.625,508.875,248.458z"/>
-	          </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                <img src="./img/move.svg" alt="Drag and drop icon" />
               </div>
               <h3>
                 HEINO
@@ -139,26 +73,7 @@
             <li draggable="true" tabindex="-1" aria-grabbed="false">
               <div>
                 <h4>ZA 19 DEC</h4>
-                <?xml version="1.0" encoding="iso-8859-1"?>
-                <!-- prettier-ignore -->
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<g>
-	<g>
-		<path d="M508.875,248.458l-74.667-74.667c-3.042-3.052-7.646-3.948-11.625-2.313c-3.979,1.646-6.583,5.542-6.583,9.854v32
-			c0,2.833,1.125,5.542,3.125,7.542l13.792,13.792H277.333V79.083l13.792,13.792c2,2,4.708,3.125,7.542,3.125h32
-			c4.313,0,8.208-2.594,9.854-6.583c1.646-3.99,0.729-8.573-2.313-11.625L263.542,3.125c-4.167-4.167-10.917-4.167-15.083,0
-			l-74.667,74.667c-3.042,3.052-3.958,7.635-2.313,11.625c1.646,3.99,5.542,6.583,9.854,6.583h32c2.833,0,5.542-1.125,7.542-3.125
-			l13.792-13.792v155.583H79.083l13.792-13.792c2-2,3.125-4.708,3.125-7.542v-32c0-4.313-2.604-8.208-6.583-9.854
-			c-3.958-1.656-8.583-0.75-11.625,2.313L3.125,248.458c-4.167,4.167-4.167,10.917,0,15.083l74.667,74.667
-			c2.042,2.042,4.771,3.125,7.542,3.125c1.375,0,2.771-0.26,4.083-0.813c3.979-1.646,6.583-5.542,6.583-9.854v-32
-			c0-2.833-1.125-5.542-3.125-7.542l-13.792-13.792h155.583v155.583l-13.792-13.792c-2-2-4.708-3.125-7.542-3.125h-32
-			c-4.313,0-8.208,2.594-9.854,6.583c-1.646,3.99-0.729,8.573,2.313,11.625l74.667,74.667c2.083,2.083,4.813,3.125,7.542,3.125
-			c2.729,0,5.458-1.042,7.542-3.125l74.667-74.667c3.042-3.052,3.958-7.635,2.313-11.625c-1.646-3.99-5.542-6.583-9.854-6.583h-32
-			c-2.833,0-5.542,1.125-7.542,3.125l-13.792,13.792V277.333h155.583l-13.792,13.792c-2,2-3.125,4.708-3.125,7.542v32
-			c0,4.313,2.604,8.208,6.583,9.854c1.313,0.552,2.708,0.813,4.083,0.813c2.771,0,5.5-1.083,7.542-3.125l74.667-74.667
-			C513.042,259.375,513.042,252.625,508.875,248.458z"/>
-	          </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                <img src="./img/move.svg" alt="Drag and drop icon" />
               </div>
               <h3>
                 CHRISTMAS SING-A-LONG
@@ -171,26 +86,7 @@
             <li draggable="true" tabindex="-1" aria-grabbed="false">
               <div>
                 <h4>ZO 20 DEC</h4>
-                <?xml version="1.0" encoding="iso-8859-1"?>
-                <!-- prettier-ignore -->
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<g>
-	<g>
-		<path d="M508.875,248.458l-74.667-74.667c-3.042-3.052-7.646-3.948-11.625-2.313c-3.979,1.646-6.583,5.542-6.583,9.854v32
-			c0,2.833,1.125,5.542,3.125,7.542l13.792,13.792H277.333V79.083l13.792,13.792c2,2,4.708,3.125,7.542,3.125h32
-			c4.313,0,8.208-2.594,9.854-6.583c1.646-3.99,0.729-8.573-2.313-11.625L263.542,3.125c-4.167-4.167-10.917-4.167-15.083,0
-			l-74.667,74.667c-3.042,3.052-3.958,7.635-2.313,11.625c1.646,3.99,5.542,6.583,9.854,6.583h32c2.833,0,5.542-1.125,7.542-3.125
-			l13.792-13.792v155.583H79.083l13.792-13.792c2-2,3.125-4.708,3.125-7.542v-32c0-4.313-2.604-8.208-6.583-9.854
-			c-3.958-1.656-8.583-0.75-11.625,2.313L3.125,248.458c-4.167,4.167-4.167,10.917,0,15.083l74.667,74.667
-			c2.042,2.042,4.771,3.125,7.542,3.125c1.375,0,2.771-0.26,4.083-0.813c3.979-1.646,6.583-5.542,6.583-9.854v-32
-			c0-2.833-1.125-5.542-3.125-7.542l-13.792-13.792h155.583v155.583l-13.792-13.792c-2-2-4.708-3.125-7.542-3.125h-32
-			c-4.313,0-8.208,2.594-9.854,6.583c-1.646,3.99-0.729,8.573,2.313,11.625l74.667,74.667c2.083,2.083,4.813,3.125,7.542,3.125
-			c2.729,0,5.458-1.042,7.542-3.125l74.667-74.667c3.042-3.052,3.958-7.635,2.313-11.625c-1.646-3.99-5.542-6.583-9.854-6.583h-32
-			c-2.833,0-5.542,1.125-7.542,3.125l-13.792,13.792V277.333h155.583l-13.792,13.792c-2,2-3.125,4.708-3.125,7.542v32
-			c0,4.313,2.604,8.208,6.583,9.854c1.313,0.552,2.708,0.813,4.083,0.813c2.771,0,5.5-1.083,7.542-3.125l74.667-74.667
-			C513.042,259.375,513.042,252.625,508.875,248.458z"/>
-	          </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                <img src="./img/move.svg" alt="Drag and drop icon" />
               </div>
               <h3>
                 BÖMBERS
@@ -201,26 +97,7 @@
             <li draggable="true" tabindex="-1" aria-grabbed="false">
               <div>
                 <h4>ZO 27 DEC</h4>
-                <?xml version="1.0" encoding="iso-8859-1"?>
-                <!-- prettier-ignore -->
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<g>
-	<g>
-		<path d="M508.875,248.458l-74.667-74.667c-3.042-3.052-7.646-3.948-11.625-2.313c-3.979,1.646-6.583,5.542-6.583,9.854v32
-			c0,2.833,1.125,5.542,3.125,7.542l13.792,13.792H277.333V79.083l13.792,13.792c2,2,4.708,3.125,7.542,3.125h32
-			c4.313,0,8.208-2.594,9.854-6.583c1.646-3.99,0.729-8.573-2.313-11.625L263.542,3.125c-4.167-4.167-10.917-4.167-15.083,0
-			l-74.667,74.667c-3.042,3.052-3.958,7.635-2.313,11.625c1.646,3.99,5.542,6.583,9.854,6.583h32c2.833,0,5.542-1.125,7.542-3.125
-			l13.792-13.792v155.583H79.083l13.792-13.792c2-2,3.125-4.708,3.125-7.542v-32c0-4.313-2.604-8.208-6.583-9.854
-			c-3.958-1.656-8.583-0.75-11.625,2.313L3.125,248.458c-4.167,4.167-4.167,10.917,0,15.083l74.667,74.667
-			c2.042,2.042,4.771,3.125,7.542,3.125c1.375,0,2.771-0.26,4.083-0.813c3.979-1.646,6.583-5.542,6.583-9.854v-32
-			c0-2.833-1.125-5.542-3.125-7.542l-13.792-13.792h155.583v155.583l-13.792-13.792c-2-2-4.708-3.125-7.542-3.125h-32
-			c-4.313,0-8.208,2.594-9.854,6.583c-1.646,3.99-0.729,8.573,2.313,11.625l74.667,74.667c2.083,2.083,4.813,3.125,7.542,3.125
-			c2.729,0,5.458-1.042,7.542-3.125l74.667-74.667c3.042-3.052,3.958-7.635,2.313-11.625c-1.646-3.99-5.542-6.583-9.854-6.583h-32
-			c-2.833,0-5.542,1.125-7.542,3.125l-13.792,13.792V277.333h155.583l-13.792,13.792c-2,2-3.125,4.708-3.125,7.542v32
-			c0,4.313,2.604,8.208,6.583,9.854c1.313,0.552,2.708,0.813,4.083,0.813c2.771,0,5.5-1.083,7.542-3.125l74.667-74.667
-			C513.042,259.375,513.042,252.625,508.875,248.458z"/>
-	          </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                <img src="./img/move.svg" alt="Drag and drop icon" />
               </div>
               <h3>
                 VOLTAGE
@@ -231,15 +108,13 @@
           </ol>
         </div>
       </div>
-      <div id="t-want" class="t-want js-t" tabindex="-1" data-index="2">
+      <div id="want-wrapper" class="list-wrappers" tabindex="-1" data-index="2">
         <div class="header-list">
-          <h2 id="test">🎤 Wil ik heen</h2>
-          <div class="menu-wrapper"></div>
+          <h2>🎤 Wil ik heen</h2>
         </div>
-        <div class="t-ol">
+        <div class="list-area">
           <ol
-            id="want"
-            class="want"
+            id="want-list"
             tabindex="-1"
             ondragstart="dragStartHandler(event)"
             ondragend="dragEndHandler(event)"
@@ -247,39 +122,16 @@
             ondragover="dragOverHandler(event)"
             ondrop="dropHandler(event)"
             aria-dropeffect="move"
-            data-list-index="2"
-          >
-            <!-- <div class="menu-wrapper">
-          <ul class="popup" role="menu">
-            <li aria-label="agenda" tabindex="-1" role="menuitem">🗓 Agenda</li>
-            <li aria-label="want" tabindex="-1" role="menuitem">
-              🎤 Wil ik heen
-            </li>
-
-            <li aria-label="kids" tabindex="-1" role="menuitem">
-              👨‍👩‍👦‍👦 Leuk voor de kinderen
-            </li>
-            <li aria-label="maybe" tabindex="-1" role="menuitem">
-              📌 Misschien
-            </li>
-            <li aria-label="nope" tabindex="-1" role="menuitem">
-              🗑 Hoef ik niet heen
-            </li>
-          </ul>
-        </div> -->
-            <p class="empty">Deze lijst is momenteel leeg.</p>
-          </ol>
+          ></ol>
         </div>
       </div>
-      <div id="t-kids" class="t-kids js-t" tabindex="-1" data-index="3">
+      <div id="kids-wrapper" class="list-wrappers" tabindex="-1" data-index="3">
         <div class="header-list">
           <h2>👨‍👩‍👦‍👦 Leuk voor de kinderen</h2>
-          <div class="menu-wrapper"></div>
         </div>
-        <div class="t-ol">
+        <div class="list-area">
           <ol
-            id="kids"
-            class="kids"
+            id="kids-list"
             tabindex="-1"
             ondragstart="dragStartHandler(event)"
             ondragend="dragEndHandler(event)"
@@ -287,21 +139,21 @@
             ondragover="dragOverHandler(event)"
             ondrop="dropHandler(event)"
             aria-dropeffect="move"
-            data-list-index="3"
-          >
-            <p class="empty">Deze lijst is momenteel leeg.</p>
-          </ol>
+          ></ol>
         </div>
       </div>
-      <div id="t-maybe" class="t-maybe js-t" tabindex="-1" data-index="4">
+      <div
+        id="maybe-wrapper"
+        class="list-wrappers"
+        tabindex="-1"
+        data-index="4"
+      >
         <div class="header-list">
           <h2>📌 Misschien</h2>
-          <div class="menu-wrapper"></div>
         </div>
-        <div class="t-ol">
+        <div class="list-area">
           <ol
-            id="maybe"
-            class="maybe"
+            id="maybe-list"
             tabindex="-1"
             ondragstart="dragStartHandler(event)"
             ondragend="dragEndHandler(event)"
@@ -309,21 +161,16 @@
             ondragover="dragOverHandler(event)"
             ondrop="dropHandler(event)"
             aria-dropeffect="move"
-            data-list-index="4"
-          >
-            <p class="empty">Deze lijst is momenteel leeg.</p>
-          </ol>
+          ></ol>
         </div>
       </div>
-      <div id="t-nope" class="t-nope js-t" tabindex="-1" data-index="5">
+      <div id="nope-wrapper" class="list-wrappers" tabindex="-1" data-index="5">
         <div class="header-list">
           <h2>🗑 Hoef ik niet heen</h2>
-          <div class="menu-wrapper"></div>
         </div>
-        <div class="t-ol">
+        <div class="list-area">
           <ol
-            id="nope"
-            class="nope"
+            id="nope-list"
             tabindex="-1"
             ondragstart="dragStartHandler(event)"
             ondragend="dragEndHandler(event)"
@@ -331,14 +178,10 @@
             ondragover="dragOverHandler(event)"
             ondrop="dropHandler(event)"
             aria-dropeffect="move"
-            data-list-index="5"
-          >
-            <p class="empty">Deze lijst is momenteel leeg.</p>
-          </ol>
+          ></ol>
         </div>
       </div>
     </main>
-    <script type="module" src="./js/modules/listItems.js"></script>
-    <script src="./js/dnd.js"></script>
+    <!-- <script src="./js/dnd.js"></script> -->
   </body>
 </html>

@@ -36,6 +36,7 @@ De tests zal ik waarschijnlijk in mijn wiki uitwerken.
 #### Plan
 
 Allereerst wil ik mijn concept uitleggen aan Marijn vóórdát hij mijn prototype ziet. Daarna wil ik hem vragen om eerst te proberen om met mijn prototype te werken, zonder uitleg én ook zonder het informatie veld te openen. Wanneer hij er echt niet uitkomt wil ik hem vragen om het informatie veld te openen. Deze test wil ik mij vooral focussen op de, door mij, gekozen navigatie-toetsen.
+https://martendebruijn.github.io/web-design-1920/
 
 #### Vragen
 
@@ -79,14 +80,13 @@ Error-02: aria-label van de navigatie pop-up komt niet overeen met het ID waar h
 
 ## To do
 
-- [ ] make DND navigation menu as drop down from beneath the title of the list
 - [ ] Add cancel option to dnd menu (fysieke knop en rechter pijl toets)
 - [ ] Fix moved card cannot be moved issue
 - [ ] Add possibility to move multiple cards at once
 - [ ] Prevent DND to move card to the agenda list
 - [ ] Add test results 1 to wiki
 - [ ] Add test results 2 to wiki
-- [ ] Add red border to cards on hover so that they don't dissolve in the orange background of the list (mouse)
+- [x] Add red border to cards on hover so that they don't dissolve in the orange background of the list (mouse)
 - [x] Add navigation controls to README
 - [x] Add custom error logs to README
 - [x] add styling to dnd
@@ -95,6 +95,7 @@ Error-02: aria-label van de navigatie pop-up komt niet overeen met het ID waar h
 - [x] Add placeholder for empty lists
 - [x] add information tab
 - [x] change card content
+- [x] make DND navigation menu as drop down from beneath the title of the list
 
 ### If I have time
 
