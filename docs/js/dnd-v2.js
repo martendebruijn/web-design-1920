@@ -94,7 +94,7 @@ document.addEventListener('keydown', function (e) {
   if ((e.keyCode === 39 || e.keyCode === 76) && listSelected && !cardSelected) {
     console.log('arrowRight');
     console.log(listIndex);
-    if (listIndex >= 3) {
+    if (listIndex >= 4) {
       listIndex = 0;
     } else {
       listIndex++;
