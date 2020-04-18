@@ -1,6 +1,5 @@
-let spatieIndex = 0;
-let spatieIndexCards = 1; // begint bij 1 omdat men kaart 0 al selecteerd met enter
-let dndMenuIndex = 0;
+let listIndex = 0;
+let cardIndex = 1; // begint bij 1 omdat men kaart 0 al selecteerd met enter
 let listSelected = false;
 let cardSelected = false;
 let lastList = 0;
@@ -12,10 +11,10 @@ function getLists() {
 function getCards(list) {
   return list.querySelectorAll('li');
 }
-function test_getLists() {
-  return document.querySelectorAll('.js-t');
+function getListWrappers() {
+  return document.querySelectorAll('.list-wrappers');
 }
-console.log(test_getLists());
+
 // main navigation
 function navigation() {
   document.addEventListener('keydown', function (e) {
@@ -28,47 +27,45 @@ function navigation() {
         // spatie
         e.preventDefault();
         const lists = test_getLists();
-        if (spatieIndex >= lists.length) {
-          spatieIndex = 0;
-          lists[spatieIndex].focus();
+        if (listIndex >= lists.length) {
+          listIndex = 0;
+          lists[listIndex].focus();
           console.log('spatie + 1e lijst');
         } else {
-          lists[spatieIndex].focus();
+          lists[listIndex].focus();
           console.log('spatie + lijst');
-          console.log(spatieIndex);
+          console.log(listIndex);
         }
         console.log('ik geef spatie index plus 1 en hoor false te zijn');
         console.log(listSelected);
-        spatieIndex++;
+        listIndex++;
       }
     } else if (listSelected && !cardSelected) {
       const _lists = test_getLists();
-      const _list = _lists[spatieIndex - 1];
+      const _list = _lists[listIndex - 1];
       const _cards = getCards(_list);
       if (e.keyCode === 32) {
         // spatie
         e.preventDefault();
         // hij voert deze code dus voor iedere keer dat je op spatie drukt uit
-        console.log(
-          spatieIndexCards === _cards.length || spatieIndexCards === 0
-        );
-        console.log('index: ' + spatieIndexCards);
-        if (spatieIndexCards >= _cards.length || spatieIndexCards === 0) {
-          spatieIndexCards = 0;
-          console.log('index: ' + spatieIndexCards);
+        console.log(cardIndex === _cards.length || cardIndex === 0);
+        console.log('index: ' + cardIndex);
+        if (cardIndex >= _cards.length || cardIndex === 0) {
+          cardIndex = 0;
+          console.log('index: ' + cardIndex);
           console.log('spatie + 1e kaart');
-          _cards[spatieIndexCards].focus();
+          _cards[cardIndex].focus();
         } else {
           console.log(_cards);
-          console.log('index: ' + spatieIndexCards);
-          _cards[spatieIndexCards].focus();
+          console.log('index: ' + cardIndex);
+          _cards[cardIndex].focus();
           console.log('spatie + 2e kaart');
         }
-        spatieIndexCards++;
-        console.log('index: ' + spatieIndexCards);
+        cardIndex++;
+        console.log('index: ' + cardIndex);
       } else if (e.keyCode === 37) {
         // pijl naar rechts <-
-        const remainedList = _lists[spatieIndex - 1];
+        const remainedList = _lists[listIndex - 1];
         remainedList.focus();
         listSelected = false;
         console.log('pijl naar rechts + lijst');
@@ -91,7 +88,7 @@ function navigation() {
         }
       } else if (e.keyCode === 37) {
         // pijl naar rechts <-
-        removePopup(spatieIndex);
+        removePopup(listIndex);
         removeHighlight();
         cardSelected = false;
         listSelected = true;
@@ -186,7 +183,7 @@ let z = 1;
 function highlightTargets() {
   console.log(`ik wordt zovaak uitgevoerd: ${z++}`);
   const lists = test_getLists();
-  const currentList = lists[spatieIndex - 1];
+  const currentList = lists[listIndex - 1];
   lists.forEach(function (list) {
     if (list !== currentList) {
       list.classList.add('jsHighlightTargets');
@@ -235,7 +232,7 @@ function showPopup(element) {
   const keys = Object.keys(menuItems);
   let popup = [];
   const lists = getLists();
-  const currentList = lists[spatieIndex - 1];
+  const currentList = lists[listIndex - 1];
   const listID = currentList.id;
   keys.forEach(function (key) {
     if (key !== listID) {
@@ -278,9 +275,9 @@ function moveElement(element, id) {
   } else {
     target.insertAdjacentHTML('beforeend', clone.outerHTML);
     const cards = target.children;
-    lastList = spatieIndex;
+    lastList = listIndex;
     const listIndex = target.getAttribute('data-list-index');
-    spatieIndex = listIndex;
+    listIndex = listIndex;
     dndMenuIndex = 0;
     cards[1].focus();
   }

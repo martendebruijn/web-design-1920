@@ -23,6 +23,9 @@ li:hover {
   border: 8px solid var(--red);
   border-radius: 16px;
 } */
+ol {
+  height: 100%;
+}
 li[draggable='true'] {
   cursor: move;
 }
@@ -108,7 +111,7 @@ ol h2 {
 .list-area {
   padding: 0 15px;
   overflow: scroll;
-  height: 90%;
+  height: calc(100% - (30px + 5%));
 }
 #want-wrapper {
   grid-column: 2;
@@ -166,6 +169,7 @@ ol.jsHighlightTargets h2 {
   background: var(--green);
 }
 .header-list {
+  height: 5%;
   padding: 15px;
   position: relative;
 }
