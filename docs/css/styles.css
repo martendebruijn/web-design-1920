@@ -7,16 +7,26 @@
   --gray: #d3d3d3;
   --dark-gray: rgb(127, 127, 127);
   --dark-blue: #4e90df;
-  --green: lightgreen;
+  --green: #21bf73;
+}
+* {
+  outline: none;
 }
 /* visual feedback */
 .list-wrappers:focus,
+.list-wrappers:focus-within,
+ol:focus {
+  background: var(--dark-blue) !important;
+}
+.selected,
 li:focus {
-  background: var(--orange) !important;
+  border-radius: 13px;
 }
 .selected {
+  border: 8px solid var(--green);
+}
+li:focus {
   border: 8px solid var(--red);
-  border-radius: 13px;
 }
 ol {
   height: 100%;
