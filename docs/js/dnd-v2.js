@@ -29,8 +29,8 @@ document.addEventListener('keydown', function (e) {
   //   console.log(e.key, ': ', e.keyCode);
   const listWrappers = getListWrappers();
 
-  // pijl naar links, index -1
-  if (e.keyCode === 37 && !listSelected) {
+  // pijl naar links / H, index -1
+  if ((e.keyCode === 37 || e.keyCode === 72) && !listSelected) {
     console.log('arrowLeft & !listSelected');
     if (listIndex <= 0) {
       listIndex = 4;
@@ -39,8 +39,8 @@ document.addEventListener('keydown', function (e) {
     }
     listWrappers[listIndex].focus();
   }
-  // pijl naar rechts, index +1
-  if (e.keyCode === 39 && !listSelected) {
+  // pijl naar rechts / L, index +1
+  if ((e.keyCode === 39 || e.keyCode === 76) && !listSelected) {
     console.log('arrowRight & !listSelected');
     if (listIndex >= 4) {
       listIndex = 0;
@@ -49,8 +49,8 @@ document.addEventListener('keydown', function (e) {
     }
     listWrappers[listIndex].focus();
   }
-  // pijl naar beneden, index + 1
-  if (e.keyCode === 40 && listSelected) {
+  // pijl naar beneden / J, index + 1
+  if ((e.keyCode === 40 || e.keyCode === 74) && listSelected) {
     console.log('arrowDown & listSelected');
     e.preventDefault();
     const cards = getSelectedListCards(listWrappers);
@@ -61,8 +61,8 @@ document.addEventListener('keydown', function (e) {
     }
     cards[cardIndex].focus();
   }
-  // pijl naar boven, index - 1
-  if (e.keyCode === 38 && listSelected) {
+  // pijl naar boven / K, index - 1
+  if ((e.keyCode === 38 || e.keyCode === 75) && listSelected) {
     console.log('arrowUp & listSelected');
     e.preventDefault();
     const cards = getSelectedListCards(listWrappers);
@@ -92,8 +92,10 @@ document.addEventListener('keydown', function (e) {
       const cards = getCards(selectedList);
       const selectedCard = cards[cardIndex];
       const targetList = getListWrappers()[listIndex];
-      moveCard(selectedCard, targetList);
-      removeCard(selectedCard);
+      if (selectedList !== targetList) {
+        moveCard(selectedCard, targetList);
+        removeCard(selectedCard);
+      }
       cardSelected = false;
     }
   }
