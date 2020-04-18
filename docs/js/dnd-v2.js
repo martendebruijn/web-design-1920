@@ -24,8 +24,8 @@ function getSelectedListCards(listWrappers) {
   return getCards(selectedList);
 }
 // navigatie pijltjes toetsten + enter selecteren
-// focus lijst 1 bij laden
-getListWrappers()[0].focus();
+// focus lijst 1, kaart 1 bij laden
+getCards(getListWrappers()[0])[0].focus();
 // main navigation
 document.addEventListener('keydown', function (e) {
   //   console.log(e.key, ': ', e.keyCode);
@@ -219,8 +219,6 @@ document.addEventListener('keydown', function (e) {
       }
       selectedCard = cards[cardIndex];
       selectedCard.classList.add('selected');
-
-      actualLists[listIndex].focus();
     } else if (!listSelected && cardSelected) {
       console.log('enter & !listSelected & cardSelected');
       const targetList = listWrappers[listIndex];

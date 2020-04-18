@@ -22,12 +22,13 @@ ol:focus {
 li:focus {
   border-radius: 13px;
 }
-.selected {
-  border: 8px solid var(--green);
-}
 li:focus {
   border: 8px solid var(--red);
 }
+.selected {
+  border: 8px solid var(--green) !important;
+}
+
 ol {
   height: 100%;
 }
