@@ -3,6 +3,8 @@ let cardIndex = 0;
 let listSelected = false;
 let cardSelected = false;
 let selectedListIndex = 0;
+var selectedCard;
+var selectedList;
 
 // helpers
 function getLists() {
@@ -50,6 +52,14 @@ document.addEventListener('keydown', function (e) {
     listWrappers[listIndex].focus();
   }
   // pijl naar beneden / J, index + 1
+  if (
+    (e.keyCode === 40 || e.keyCode === 74) &&
+    !listSelected &&
+    listIndex === 3
+  ) {
+    listIndex++;
+    listWrappers[listIndex].focus();
+  }
   if ((e.keyCode === 40 || e.keyCode === 74) && listSelected) {
     console.log('arrowDown & listSelected');
     e.preventDefault();
@@ -62,6 +72,14 @@ document.addEventListener('keydown', function (e) {
     cards[cardIndex].focus();
   }
   // pijl naar boven / K, index - 1
+  if (
+    (e.keyCode === 38 || e.keyCode === 75) &&
+    !listSelected &&
+    listIndex === 4
+  ) {
+    listIndex--;
+    listWrappers[listIndex].focus();
+  }
   if ((e.keyCode === 38 || e.keyCode === 75) && listSelected) {
     console.log('arrowUp & listSelected');
     e.preventDefault();
@@ -78,19 +96,34 @@ document.addEventListener('keydown', function (e) {
     if (!listSelected && !cardSelected) {
       console.log('enter & !listSelected & !cardSelected');
       const cards = getSelectedListCards(listWrappers);
-      listSelected = true;
-      selectedListIndex = listIndex;
-      cards[0].focus();
+      console.log(cards);
+      if (cards.length !== 0) {
+        listSelected = true;
+        selectedListIndex = listIndex;
+        cards[0].focus();
+      }
     } else if (listSelected && !cardSelected) {
       console.log('enter & listSelected & !cardSelected');
       // enter, selecteer card
       cardSelected = true;
       listSelected = false;
+      selectedList = getListWrappers()[selectedListIndex];
+      const cards = getCards(selectedList);
+      if (cardIndex >= cards.length) {
+        cardIndex = cards.length - 1;
+      }
+      selectedCard = cards[cardIndex];
+      selectedCard.classList.add('selected');
+
+      if (listIndex >= 4) {
+        listIndex = 0;
+      } else {
+        listIndex = listIndex + 1;
+      }
+      listWrappers[listIndex].focus();
     } else if (!listSelected && cardSelected) {
       console.log('enter & !listSelected & cardSelected');
-      const selectedList = getListWrappers()[selectedListIndex];
-      const cards = getCards(selectedList);
-      const selectedCard = cards[cardIndex];
+
       const targetList = getListWrappers()[listIndex];
       if (selectedList !== targetList) {
         moveCard(selectedCard, targetList);
@@ -104,6 +137,7 @@ document.addEventListener('keydown', function (e) {
 function moveCard(element, target) {
   const list = target.querySelector('ol');
   const clone = element.cloneNode(true);
+  clone.classList.remove('selected');
   list.insertAdjacentHTML('beforeend', clone.outerHTML);
 }
 function removeCard(element) {
