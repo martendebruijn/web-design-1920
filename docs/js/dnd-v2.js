@@ -1,6 +1,6 @@
 let listIndex = 0;
 let cardIndex = 0;
-let listSelected = false;
+let listSelected = true;
 let cardSelected = false;
 let selectedListIndex = 0;
 var selectedCard;
@@ -222,6 +222,7 @@ document.addEventListener('keydown', function (e) {
     } else if (!listSelected && cardSelected) {
       console.log('enter & !listSelected & cardSelected');
       const targetList = listWrappers[listIndex];
+      selectedListIndex = listIndex;
       if (selectedList !== targetList) {
         moveCard(selectedCard, targetList);
         removeCard(selectedCard);
@@ -229,6 +230,10 @@ document.addEventListener('keydown', function (e) {
         selectedCard.classList.remove('selected');
       }
       cardSelected = false;
+      const targetCards = getCards(targetList);
+      console.log(targetCards);
+      targetCards[0].focus();
+      listSelected = true;
     }
   }
 });

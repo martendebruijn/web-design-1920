@@ -65,7 +65,7 @@ h4 {
   font-size: small;
 }
 .hint-wrapper {
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--gray);
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
   padding: 4px;
