@@ -89,14 +89,13 @@ Het remote testen ging moeizaam. Doordat Marijn moeite heeft met praten was hij 
 ### Eerste concept
 
 Wat kan men maken met een drag and drop? Ik stelde mijzelf de vraag: waar gebruik ik drag and drop?. Al snel dacht ik aan Trello. Hier kwam het idee om een Agile Scrum bord te maken.
-<img src="/img/schets-1-concept-1.JPG" height="100" />
 
-![Schets Agile Bord 1](/img/schets-1-concept-1.JPG)
+<img src="/img/schets-1-concept-1.JPG" height="500" />
 ![Schets Agile Bord 2](/img/schets-2-concept-1.JPG)
 
 Echter vond ik dit concept toch te saai. Hierdoor ging ik brainstormen wat ik kon doen om het concept leuker te maken. Uiteindelijk kwam ik op het idee om [de agenda van de Effenaar](https://www.effenaar.nl/agenda) - de concerthal van Eindhoven - erbij te pakken. En zo kwam ik bij het uiteindelijke concept.
 
-![Schets Effenaar Concept](/img/schets-1-concept-2.PNG)
+![Schets Effenaar Concept](/img/schets-1-concept-2.png)
 
 ## 🕹 Live Demo
 
