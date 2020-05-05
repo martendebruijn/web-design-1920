@@ -33,7 +33,7 @@ Who? What? How? en Why?
 
 Er zijn vier exclusive desing principles: study situation, ignore conventions, prioritise identity en add nonsense. Hieronder beschrijf ik kort wat deze design principles precies inhoudt.
 
-### **Study Situation**
+### Study Situation
 
 Het principle study situation gaat volledig over het onderzoeken van desbetreffende situatie. Om daadwerkelijk exclusief voor één persoon te ontwerpen, moet men een goede kennis hebben van de situatie. Hier kan men de volgende vragen bij gebruiken:
 
@@ -48,6 +48,8 @@ Het principle study situation gaat volledig over het onderzoeken van desbetreffe
 
 Study situation heb ik in mijn concept toegepast door mij zo goed mogelijk in te leven in de situatie van Marijn en zijn leven.
 
+#
+
 ### Ignore Conventions
 
 De orginele conventie zegt dat men moet blijven bij de conventies die bekend zijn bij mensen. Echter werken deze conventies niet altijd even goed voor iedereen; in het bijzonder bij mensen met een lichamelijke beperking. Hierdoor moet men onderzoeken of deze conventiens nodig zijn - en bruikbaar zijn - voor degene waar je voor aan het ontwerpen bent.
@@ -55,6 +57,8 @@ De orginele conventie zegt dat men moet blijven bij de conventies die bekend zij
 #### Toepassing
 
 Ignore Conventions was meteen op dag 1 al duidelijk. Naast dat er amper/geen conventies überhaupt zijn voor drag and drop, is het gebruik van de tab toets om te navigeren over links op websites niet bruikbaar voor Marijn. Marijn gebruikt de tab toets namelijk niet.
+
+#
 
 ### Prioritise Identity
 
@@ -64,6 +68,8 @@ Dit principle gaat over dat het product echt voor diegene ontworpen wordt. Het m
 
 Door bij de test goed te observeren en luisteren naar wat Marijn wilt. Hij is degene waar het uiteindelijk om draait.
 
+#
+
 ### Add nonsense
 
 Het add nonsense principle gaat over het ontwerp meer maken dan alleen functioneel. Door 'onzin' toe te voegen aan het ontwerp.
@@ -71,6 +77,8 @@ Het add nonsense principle gaat over het ontwerp meer maken dan alleen functione
 #### Toepassing
 
 Add nonsense is het enige principle dat ik niet zo erg heb toegevoegd in mijn prototype. Mijn prototype is toch wat meer functioneel gericht. Als ik meer tijd zou hebben zou ik hier over kunnen nadenken. Bijvoorbeeld door bepaalde toetscombinaties te maken die dan iets grappigs doen.
+
+#
 
 ## 👾 Introductie
 
