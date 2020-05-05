@@ -34,20 +34,16 @@ cd web-design-1920
 - `HJKL` `arrow left` `arrow up` `arrow down` `arrow right` navigeren over de lijsten en kaarten
 - `enter` selecteert een element
 
-#
-
 ## 📍 Table of Contents
 
-- [User scenario](#user-scenario)
-- [Exclusive Design Principles](#Exclusive-Design-Principles)
+- [👨🏻‍💻 User scenario](#user-scenario)
+- [💈 Exclusive Design Principles](#Exclusive-Design-Principles)
 - [🎨 Ontwerpproces](#-Ontwerpproces)
 - [✨ Whishlist](#-Whishlist)
 - [🙌 Credits](#-Credits)
 - [📚 Sources](#-Sources)
 
-#
-
-## User scenario
+## 👨🏻‍💻 User scenario
 
 ### Wie is de gebruiker voor wie ik ontwerp?
 
@@ -71,7 +67,7 @@ Omdat Marijn motorisch gestoord is, is zijn fijne motoriek niet goed. Hierom is 
 
 Zodat hij op een gemakelijke manier concerten kan uitzoeken waar hij heen - of niet - wilt.
 
-## Exclusive Design Principles
+## 💈 Exclusive Design Principles
 
 Er zijn vier exclusive desing principles: study situation, ignore conventions, prioritise identity en add nonsense. Hieronder beschrijf ik kort wat deze design principles precies inhoudt. Ook staat er een kleine omschrijving bij hoe ik de principles heb toegepast in mijn ontwerp. Voor een uitgebreidere uitleg kan men [mijn ontwerpproces](#ontwerp-proces) lezen.
 
@@ -122,8 +118,6 @@ Add nonsense is het enige principle dat ik niet zo erg heb toegevoegd in mijn pr
 
 ## 🎨 Ontwerpproces en usertests
 
-#
-
 ### 📍 O-Table of Contents
 
 - [Hoe werkt een drag and drop eigenlijk?](#Hoe-werkt-een-drag-and-drop-eigenlijk)
@@ -142,6 +136,8 @@ Add nonsense is het enige principle dat ik niet zo erg heb toegevoegd in mijn pr
 
 Ikzelf had nog nooit een drag and drop gemaakt. Voordat ik begon met het maken van een ontwerp voor Marijn begon ik met het onderzoeken hoe een - normale - drag and drop werkt. Dit deed ik op basis van [de standaarde van HTML](https://html.spec.whatwg.org/#dnd). In de wiki van deze repo kan men [een samenvatting](https://github.com/martendebruijn/web-design-1920/wiki/dnd) vinden van deze standaarden.
 
+#
+
 [Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
 
 #
@@ -151,6 +147,8 @@ Ikzelf had nog nooit een drag and drop gemaakt. Voordat ik begon met het maken v
 Na het maken van een normale drag and drop, ging ik onderzoeken hoe men het toegankelijk kan maken. Dit heb ik gedaan op basis van [dit artikel](https://dev.opera.com/articles/accessible-drag-and-drop/). In de wiki van deze repo kan men [een samenvatting](https://github.com/martendebruijn/web-design-1920/wiki/accesible-drag-drop) vinden van dit artikel.
 
 ![Accesible Drag and Drop](/img/accesible-dnd-1.png)
+
+#
 
 [Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
 
@@ -162,8 +160,6 @@ Na het maken van een normale drag and drop, ging ik onderzoeken hoe men het toeg
 
 De eerste test was meteen op de eerste dag van de module. Dit veroorzaakte dat ik - en bijna iedereen uit het team - nog niet een prototype had om daadwerkelijk te testen. Hierom hadden we als groep afgesproken om hele basis prototypes te maken. Zodat we konden zien hoe Marijn met deze om gaat als ze niet toegankelijk zijn gemaakt. Ook hadden we als groep een aantal vragen opgesteld voor Marijn.
 
-#
-
 #### De test
 
 Wat meteen opviel aan Marijn was dat hij veel lacht. Marijn beschreef zichzelf dan ook als opgewekt, bedreven en analytisch. Ook heeft hij er een hekel aan als mensen niet nadenken. Hij is regelmatig te vinden in de moshpit bij stoner metal concerten. **Eindhoven Rock City!**
@@ -172,13 +168,13 @@ Om te navigeren gebruikt hij alleen zijn linkerhand. Met zijn duim gebruikt hij 
 
 Het remote testen ging moeizaam. Doordat Marijn moeite heeft met praten was hij vrijwel niet te verstaan. Ook is het onhandig dat we niet kunnen zien hoe hij interacteert met zijn computer. Hierdoor is het een beetje giswerk op welke keys we ons moeten gaan richten. In de nabespreking met Vasilas hebben we afgesproken dat Vasilas voor de andere twee testen naar Eindhoven gaat. Hier kan hij het toetsenbord van Marijn filmen en fungeren als tolk voor ons.
 
-#
-
 #### Conclusie
 
 - Vasilas gaat de volgende keren naar Eindhoven toe.
 - Navigeren met links
 - Niet of nauwelijks `tab`.
+
+#
 
 [Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
 
@@ -191,6 +187,8 @@ Wat kan men maken met een drag and drop? Ik stelde mijzelf de vraag: waar gebrui
 <img src="/img/schets-1-concept-1.JPG" height="500" />
 
 ![Schets Agile Bord 2](/img/schets-2-concept-1.JPG)
+
+#
 
 [Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
 
@@ -206,6 +204,8 @@ De kleuren bij bovenstaande eerste schets heb ik gebaseerd op de - volgens de Ro
 
 Bij de headers van de lijsten heb ik emoticons toegevoegd om het wat spannender te maken. Voor de 'leuk voor de kinderen' lijst heb ik gekozen voor de 👨‍👨‍👦‍👦 emoticon, omdat Marijn een vrouw en twee kinderen heeft.
 
+#
+
 [Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
 
 #
@@ -220,14 +220,14 @@ Marijn had het ook over de `HJKL` toetsen op het toetsenbord. HJKL wordt gebruik
 
 Bij mijn concept was het de bedoeling dat men eerst een lijst selecteert en vervolgens een element in die lijst selecteert. Wanneer men een element selecteert komt er een navigatie menu tevoorschijn. In dit menu kan men de lijst selecteren waar het element heen moet. Dit werkte niet soepel en besloot ik om dit sub-menu eruit te halen. In plaats van het sub-menu wilde ik dat nadat een element geselecteerd wordt men daarna met keyboard controls kan navigeren over de andere lijsten.
 
-#
-
 #### Conclusie
 
 - HJKL toetsen toevoegen
 - Bugs fiksen
 - Scroll bars weghalen
 - Navigatie verbeteren
+
+#
 
 [Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
 
@@ -237,6 +237,8 @@ Bij mijn concept was het de bedoeling dat men eerst een lijst selecteert en verv
 
 Na de tweede test ben ik vooral bezig geweest met het veranderen van de controls. I.p.v. spatie, enter en de spatietoetsen heb ik de pijltjestoetsen, hjkl en enter gebruikt.
 
+#
+
 [Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
 
 #
@@ -245,11 +247,11 @@ Na de tweede test ben ik vooral bezig geweest met het veranderen van de controls
 
 De laatste test met Marijn verliep soepel. De nieuwe toetscombinaties werkte fijn en de bugs waren eruit. Doordat deze test zo soepel verliep heb ik naast dat mijn prototype goed werkt er niet al te veel uit kunnen halen.
 
-#
-
 #### Conclusie
 
 - Het werkt fijn.
+
+#
 
 [Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
 
@@ -258,8 +260,6 @@ De laatste test met Marijn verliep soepel. De nieuwe toetscombinaties werkte fij
 ### Final touch
 
 De kleuren heb ik zo neutraal mogelijk gemaakt, zodat het duidelijk is welk element geselecteerd is. Ook kan ik de 'hoef ik niet heen' lijst weghalen. Dat wanneer Marijn ergens niet heen wilt hij deze gewoon kan verwijderen.
-
-#
 
 ## ✨ Whishlist
 
