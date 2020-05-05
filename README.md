@@ -126,7 +126,7 @@ Add nonsense is het enige principle dat ik niet zo erg heb toegevoegd in mijn pr
 - [Eerste concept](#Eerste-concept)
 - [Nieuw concept](#Nieuw-concept)
 - [Test 2 - 15-04-2020](#Test-2---15-04-2020)
-- [Controls](#Controls)
+- [Nieuwe controls](#Nieuwe-controls)
 - [De laatste test - 22-04-2020](#De-laatste-test---22-04-2020)
 - [Final touch](#Final-touch)
 
@@ -233,7 +233,7 @@ Bij mijn concept was het de bedoeling dat men eerst een lijst selecteert en verv
 
 #
 
-### Controls
+### Nieuwe controls
 
 Na de tweede test ben ik vooral bezig geweest met het veranderen van de controls. I.p.v. spatie, enter en de spatietoetsen heb ik de pijltjestoetsen, hjkl en enter gebruikt.
 
