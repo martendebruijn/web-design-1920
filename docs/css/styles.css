@@ -28,7 +28,6 @@ li:focus {
 .selected {
   border: 8px solid var(--green) !important;
 }
-
 ol {
   height: 100%;
 }
@@ -169,6 +168,13 @@ ol h2 {
   grid-column: 4;
   grid-row: 3 / 5;
   background: var(--gray);
+}
+
+#nope-wrapper li,
+#maybe-wrapper li {
+  transform: scale(0.7);
+  transform-origin: top;
+  margin-top: 10px;
 }
 /* cards */
 ol li {
