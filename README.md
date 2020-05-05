@@ -33,7 +33,7 @@ Who? What? How? en Why?
 
 Er zijn vier exclusive desing principles: study situation, ignore conventions, prioritise identity en add nonsense. Hieronder beschrijf ik kort wat deze design principles precies inhoudt.
 
-### Study Situation
+### **Study Situation**
 
 Het principle study situation gaat volledig over het onderzoeken van desbetreffende situatie. Om daadwerkelijk exclusief voor één persoon te ontwerpen, moet men een goede kennis hebben van de situatie. Hier kan men de volgende vragen bij gebruiken:
 
