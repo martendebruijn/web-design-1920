@@ -33,6 +33,7 @@ cd web-design-1920
 
 - `HJKL` `arrow left` `arrow up` `arrow down` `arrow right` navigeren over de lijsten en kaarten
 - `enter` selecteert een element
+- `backspace` deselecteer een element
 
 ## 📍 Table of Contents
 
@@ -281,6 +282,7 @@ De kleuren heb ik zo neutraal mogelijk gemaakt, zodat het duidelijk is welk elem
 - 📖 [Aria Practices](https://w3c.github.io/aria-practices/examples/menubar/menubar-1/menubar-1.html)
 - 🛠 [Keycodes](https://keycode.info/)
 - 📖 [Exclusive Design - Vasilis van Gemert](https://exclusive-design.vasilis.nl/)
+- 📖 [How user scenarios help to improve your UX - Sabina Idler - usabilla.com](https://usabilla.com/blog/how-user-scenarios-help-to-improve-your-ux/)
 
 ❤️ Thanks for reading ❤️<br/>
 ❤️ Marten de Bruijn ❤️
