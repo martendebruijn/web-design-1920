@@ -1,6 +1,7 @@
 # 🎓Web Design @cmda-minor-web 1920 👨🏻‍💻Marten de Bruijn
 
 ![Screenshot van de applicatie](/img/screenshot-web-design.png)
+![GIF van de applicatie](/img/web-design-eind-product.gif)
 
 ## 👾 Introductie
 
