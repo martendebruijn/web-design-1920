@@ -72,6 +72,8 @@ Ikzelf had nog nooit een drag and drop gemaakt. Voordat ik begon met het maken v
 
 Na het maken van een normale drag and drop, ging ik onderzoeken hoe men het toegankelijk kan maken. Dit heb ik gedaan op basis van [dit artikel](https://dev.opera.com/articles/accessible-drag-and-drop/). In de wiki van deze repo kan men [een samenvatting](https://github.com/martendebruijn/web-design-1920/wiki/accesible-drag-drop) vinden van dit artikel.
 
+![Accesible Drag and Drop](/img/accesible-dnd-1.png)
+
 ### De eerste test - 08-04-2020
 
 #### Voor de test
@@ -86,16 +88,48 @@ Om te navigeren gebruikt hij alleen zijn linkerhand. Met zijn duim gebruikt hij 
 
 Het remote testen ging moeizaam. Doordat Marijn moeite heeft met praten was hij vrijwel niet te verstaan. Ook is het onhandig dat we niet kunnen zien hoe hij interacteert met zijn computer. Hierdoor is het een beetje giswerk op welke keys we ons moeten gaan richten. In de nabespreking met Vasilas hebben we afgesproken dat Vasilas voor de andere twee testen naar Eindhoven gaat. Hier kan hij het toetsenbord van Marijn filmen en fungeren als tolk voor ons.
 
+#### Conclusie
+
+- Vasilas gaat de volgende keren naar Eindhoven toe.
+- Navigeren met links
+- Niet of nauwelijks `tab`.
+
 ### Eerste concept
 
 Wat kan men maken met een drag and drop? Ik stelde mijzelf de vraag: waar gebruik ik drag and drop?. Al snel dacht ik aan Trello. Hier kwam het idee om een Agile Scrum bord te maken.
 
 <img src="/img/schets-1-concept-1.JPG" height="500" />
+
 ![Schets Agile Bord 2](/img/schets-2-concept-1.JPG)
+
+### Nieuw concept
 
 Echter vond ik dit concept toch te saai. Hierdoor ging ik brainstormen wat ik kon doen om het concept leuker te maken. Uiteindelijk kwam ik op het idee om [de agenda van de Effenaar](https://www.effenaar.nl/agenda) - de concerthal van Eindhoven - erbij te pakken. En zo kwam ik bij het uiteindelijke concept.
 
 ![Schets Effenaar Concept](/img/schets-1-concept-2.png)
+
+De kleuren bij bovenstaande eerste schets heb ik gebaseerd op de - volgens de Rolling Stones, ik weet niks van metal - [top 3 metal albums aller tijden](https://www.rollingstone.com/music/music-lists/the-100-greatest-metal-albums-of-all-time-113614/?list_page=2#list-item-20).
+
+### Test 2 - 15-04-2020
+
+Het eerste wat Marijn zei toen hij mijn concept zag, was dat hij het een leuk idee vond. Verder ging de test niet zo soepel - of eigenlijk juist wel omdat ik er veel uit heb kunnen halen. Doordat de keyboard controls niet goed werkte en het prototype erg buggy was snapte Marijn er niks van. Ook had Marijn het voor elkaar gekregen om twee elementen te selecteren, terwijl dit niet de bedoeling was dat dit kon. Ook zag ik bij hem dat de scroll bars weergegeven worden - en hierdoor de lay-out verkeerd werd weergegeven. Bij mij is dit niet het geval. Later kwam ik erachter dat dit een instelling van je Mac is. De scroll bars heb ik later weggehaald door het parent element op `overflow: hidden` te zetten en het child element op `overflow-y: scroll` te zetten.
+
+![Remote testing](/img/test-2.png)
+
+Marijn had het ook over de `HJKL` toetsen op het toetsenbord. HJKL wordt gebruikt als alternatief voor de pijltjes toetsen. Dit stamt af van toen veel computers geen specifieke pijltjes toetsen hadden. Een ander voordeel van de `HJKL` toetsen is dat ze groter zijn en meer uitelkaar zitten dan de pijltjes toetsen. Hierdoor zijn de HJKL toetsen toegankelijker voor Marijn.
+
+Bij mijn concept was het de bedoeling dat men eerst een lijst selecteert en vervolgens een element in die lijst selecteert. Wanneer men een element selecteert komt er een navigatie menu tevoorschijn. In dit menu kan men de lijst selecteren waar het element heen moet. Dit werkte niet soepel en besloot ik om dit sub-menu eruit te halen. In plaats van het sub-menu wilde ik dat nadat een element geselecteerd wordt men daarna met keyboard controls kan navigeren over de andere lijsten.
+
+#### Conclusie
+
+- HJKL toetsen toevoegen
+- Bugs fiksen
+- Scroll bars weghalen
+- Navigatie verbeteren
+
+### Verbeteringen
+
+### Test 3
 
 ## 🕹 Live Demo
 
