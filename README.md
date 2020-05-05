@@ -36,9 +36,9 @@ cd web-design-1920
 
 ## 📍 Table of Contents
 
-- [👨🏻‍💻 User scenario](#user-scenario)
-- [💈 Exclusive Design Principles](#Exclusive-Design-Principles)
-- [🎨 Ontwerpproces](#-Ontwerpproces)
+- [👨🏻‍💻 User scenario](#-user-scenario)
+- [💈 Exclusive Design Principles](#-exclusive-design-principles)
+- [🎨 Ontwerpproces en usertests](##-ontwerpproces-en-usertests)
 - [✨ Whishlist](#-Whishlist)
 - [🙌 Credits](#-Credits)
 - [📚 Sources](#-Sources)
@@ -69,7 +69,7 @@ Zodat hij op een gemakelijke manier concerten kan uitzoeken waar hij heen - of n
 
 ## 💈 Exclusive Design Principles
 
-Er zijn vier exclusive desing principles: study situation, ignore conventions, prioritise identity en add nonsense. Hieronder beschrijf ik kort wat deze design principles precies inhoudt. Ook staat er een kleine omschrijving bij hoe ik de principles heb toegepast in mijn ontwerp. Voor een uitgebreidere uitleg kan men [mijn ontwerpproces](#ontwerp-proces) lezen.
+Er zijn vier exclusive desing principles: study situation, ignore conventions, prioritise identity en add nonsense. Hieronder beschrijf ik kort wat deze design principles precies inhoudt. Ook staat er een kleine omschrijving bij hoe ik de principles heb toegepast in mijn ontwerp. Voor een uitgebreidere uitleg kan men [mijn ontwerpproces](#-ontwerpproces-en-usertests) lezen.
 
 ### Study Situation
 
@@ -138,7 +138,7 @@ Ikzelf had nog nooit een drag and drop gemaakt. Voordat ik begon met het maken v
 
 #
 
-[Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
+[Terug naar 📍 O-Table of Contents](#-o-table-of-contents)
 
 #
 
@@ -150,7 +150,7 @@ Na het maken van een normale drag and drop, ging ik onderzoeken hoe men het toeg
 
 #
 
-[Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
+[Terug naar 📍 O-Table of Contents](#-o-table-of-contents)
 
 #
 
@@ -176,7 +176,7 @@ Het remote testen ging moeizaam. Doordat Marijn moeite heeft met praten was hij 
 
 #
 
-[Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
+[Terug naar 📍 O-Table of Contents](#-o-table-of-contents)
 
 #
 
@@ -190,7 +190,7 @@ Wat kan men maken met een drag and drop? Ik stelde mijzelf de vraag: waar gebrui
 
 #
 
-[Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
+[Terug naar 📍 O-Table of Contents](#-o-table-of-contents)
 
 #
 
@@ -206,7 +206,7 @@ Bij de headers van de lijsten heb ik emoticons toegevoegd om het wat spannender 
 
 #
 
-[Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
+[Terug naar 📍 O-Table of Contents](#-o-table-of-contents)
 
 #
 
@@ -229,7 +229,7 @@ Bij mijn concept was het de bedoeling dat men eerst een lijst selecteert en verv
 
 #
 
-[Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
+[Terug naar 📍 O-Table of Contents](#-o-table-of-contents)
 
 #
 
@@ -239,7 +239,7 @@ Na de tweede test ben ik vooral bezig geweest met het veranderen van de controls
 
 #
 
-[Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
+[Terug naar 📍 O-Table of Contents](#-o-table-of-contents)
 
 #
 
@@ -253,7 +253,7 @@ De laatste test met Marijn verliep soepel. De nieuwe toetscombinaties werkte fij
 
 #
 
-[Terug naar 📍 O-Table of Contents](#O-Table-of-Contents)
+[Terug naar 📍 O-Table of Contents](#-o-table-of-contents)
 
 #
 
