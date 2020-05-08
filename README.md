@@ -15,7 +15,7 @@ Voor Marijn is een drag and drop operatie lastig - alhoewel in de tests bleek da
 
 ## ✏️ Concept
 
-Een speciaal voor Marijn gemaakte concert planner van de Effenaar. De Effenaar is de concerthal van Eindhoven. Door middel van drag and drop kan hij concerten in verschillende lijsten zetten. Marijn kan concerten ordenen in 'wil ik heen', 'leuk voor de kinderen', 'misschien', 'hoef ik niet heen'.
+Een speciaal voor Marijn gemaakte concert planner van de Effenaar. De Effenaar is de concerthal van Eindhoven. Door middel van drag and drop kan hij concerten in verschillende lijsten zetten. Marijn kan concerten ordenen in 'wil ik heen', 'leuk voor de kinderen', 'misschien', 'hoef ik niet heen'. De lijst 'hoef ik niet heen' kan in de toekomst weggelaten worden; evenementen waar hij dan niet heen wilt kunnen dan meteen verwijderd worden. Echter voor de sake van het prototype heb ik deze erin gelaten, zodat het niet mogelijk is dat er geen kaarten meer zijn.
 
 ## 🕹 Live Demo
 
@@ -35,6 +35,10 @@ cd web-design-1920
 - `HJKL` `arrow left` `arrow up` `arrow down` `arrow right` navigeren over de lijsten en kaarten
 - `enter` selecteert een element
 - `backspace` deselecteer een element
+
+## ⚠️ Known Issues
+
+- Als men de normale manier - met de muis - drag and drop gebruikt, klopt de keyboard navigatie niet meer.
 
 ## 📍 Table of Contents
 
@@ -86,7 +90,7 @@ Het principle study situation gaat volledig over het onderzoeken van desbetreffe
 
 #### Toepassing
 
-Study situation heb ik in mijn concept toegepast door mij zo goed mogelijk in te leven in de situatie van Marijn en zijn leven.
+Study situation heb ik in mijn concept toegepast door mij zo goed mogelijk in te leven in de situatie van Marijn en zijn leven. Bijvoorbeeld dat hij in Eindhoven woont, een vrouw en twee kinderen heeft, graag naar concerten gaat. Maar ook bijvoorbeeld dat hij de tab toets niet gebruikt. Dit had ik niet kunnen weten als ik geen onderzoek naar Marijn als persoon had gedaan.
 
 #
 
@@ -96,7 +100,7 @@ De orginele conventie zegt dat men moet blijven bij de conventies die bekend zij
 
 #### Toepassing
 
-Ignore Conventions was meteen op dag 1 al duidelijk. Naast dat er amper/geen conventies überhaupt zijn voor drag and drop, is het gebruik van de tab toets om te navigeren over links op websites niet bruikbaar voor Marijn. Marijn gebruikt de tab toets namelijk niet.
+Ignore Conventions was meteen op dag 1 al duidelijk. Naast dat er amper/geen conventies überhaupt zijn voor drag and drop, is het gebruik van de tab toets om te navigeren over links op websites niet bruikbaar voor Marijn. Marijn gebruikt de tab toets namelijk niet. Marijn maakt eigenlijk alleen gebruik van de rechterkant van zijn toetsenbord. En af en toe het trackpad.
 
 #
 
@@ -106,7 +110,7 @@ Dit principle gaat over dat het product echt voor diegene ontworpen wordt. Het m
 
 #### Toepassing
 
-Door bij de test goed te observeren en luisteren naar wat Marijn wilt. Hij is degene waar het uiteindelijk om draait.
+Door bij de test goed te observeren en luisteren naar wat Marijn wilt. Hij is degene waar het uiteindelijk om draait. Dit principe blijkt uit dat in het prototype expres geen gebruik is gemaakt van heftige animaties of kleuren. Dit omdat Marijn daar niet van houdt. Hierom heb ik het UI zo netjes mogelijk geprobeert te houden. Maar ook dat het prototype draait om de agenda van de Effenaar in Eindhoven, waar hij woont. Ook het feit dat hij twee kinderen heeft, heb ik erin verwerkt door een aparte lijst te maken voor concerten die leuk zijn om met de familie heen te gaan.
 
 #
 
@@ -116,7 +120,11 @@ Het add nonsense principle gaat over het ontwerp meer maken dan alleen functione
 
 #### Toepassing
 
-Add nonsense is het enige principle dat ik niet zo erg heb toegevoegd in mijn prototype. Mijn prototype is toch wat meer functioneel gericht. Als ik meer tijd zou hebben zou ik hier over kunnen nadenken. Bijvoorbeeld door bepaalde toetscombinaties te maken die dan iets grappigs doen.
+Add nonsense is het enige principle dat ik niet zo erg heb toegevoegd in mijn prototype. Mijn prototype is toch wat meer functioneel gericht. Nonsense die ik eventueel had kunnen toevoegen:
+
+- Een toets gebruiken als randomizer. (Bijvoorbeeld de `r`...) Wanneer Marijn op deze knop drukt, er een willekeurig evenement te voor schijn komt. Dit zou ervoor kunnen zorgen dat Marijn evenementen zou kunnen zien die hij bij normaal gebruik niet zou zien.
+- Een toets combinatie gebruiken dat degehele lay-out veranderd naar een donker Metal interface (met geluid).
+- Als Marijn een kaart verwijderd dat men een (metal) geluid hoort. Dit zou ook kunnen met een animatie, echter vind Marijn zo'n animatie na een paar keer niet leuk meer en wordt het irritant.
 
 ## 🎨 Ontwerpproces en usertests
 
@@ -222,9 +230,11 @@ Marijn had het ook over de `HJKL` toetsen op het toetsenbord. HJKL wordt gebruik
 
 Bij mijn concept was het de bedoeling dat men eerst een lijst selecteert en vervolgens een element in die lijst selecteert. Wanneer men een element selecteert komt er een navigatie menu tevoorschijn. In dit menu kan men de lijst selecteren waar het element heen moet. Dit werkte niet soepel en besloot ik om dit sub-menu eruit te halen. In plaats van het sub-menu wilde ik dat nadat een element geselecteerd wordt men daarna met keyboard controls kan navigeren over de andere lijsten.
 
+Ik had gekozen om enkel de spatiebalk en de entertoets te gebruiken. Mijn redenatie was dat beide knopper vrij groot zijn en niet direct naast elkaar zitten en dus goed en makkelijk te bedienen waren. Echter toen Marijn mijn prototype opende, ging hij er meteen van uit dat men kon navigeren met de pijltjes toetsten. Toen er niets gebeurde, moest ik de controls aan Marijn uitleggen.
+
 #### Conclusie
 
-- HJKL toetsen toevoegen
+- Andere controls bedenken
 - Bugs fiksen
 - Scroll bars weghalen
 - Navigatie verbeteren
@@ -237,7 +247,11 @@ Bij mijn concept was het de bedoeling dat men eerst een lijst selecteert en verv
 
 ### Nieuwe controls
 
-Na de tweede test ben ik vooral bezig geweest met het veranderen van de controls. I.p.v. spatie, enter en de spatietoetsen heb ik de pijltjestoetsen, hjkl en enter gebruikt.
+Aan de hand van de tweede test kon ik concluderen dat de bedachte controls niet de juiste controls waren. Marijn had het erover dat hij ervan uit ging dat men kon navigeren door middel van de pijltjestoetsen. Ook is de enter toets een gebruikelijke toets om elementen te selecteren. Naast de pijltjes toetsen had Marijn het ook over `HJKL`. Toetsen die vaak ook in plaats van de pijltjes toetsen worden gebruikt. Dit wordt bijvoorbeeld gedaan in VIM. Na de tweede test ben ik dus vooral bezig geweest met het ombouwen van het prototype naar de nieuwe controls:
+
+- `HJKL` en de pijltjes toetsen voor het navigeren
+- `enter` voor het selecteren
+- `backspace` voor het deselecteren
 
 #
 
@@ -247,11 +261,12 @@ Na de tweede test ben ik vooral bezig geweest met het veranderen van de controls
 
 ### De laatste test - 22-04-2020
 
-De laatste test met Marijn verliep soepel. De nieuwe toetscombinaties werkte fijn en de bugs waren eruit. Doordat deze test zo soepel verliep heb ik naast dat mijn prototype goed werkt er niet al te veel uit kunnen halen.
+De laatste test met Marijn verliep soepel. Marijn vond de nieuwe toetscombinaties fijn werken. Ook waren de bugs eruit. Doordat deze test zo soepel verliep heb ik naast dat mijn prototype goed werkt er niet al te veel uit kunnen halen.
 
 #### Conclusie
 
-- Het werkt fijn.
+- Navigeren werkt fijn.
+- "Prima app"
 
 #
 
